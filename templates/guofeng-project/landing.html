@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>松烟宣纸 · 泾县手工</title>
+<style>
+  :root{
+    /* Color — DESIGN.md §2 */
+    --color-primary:#B03A2E;
+    --color-primary-hover:#9A2F24;
+    --color-surface:#F7F2E7;
+    --color-surface-alt:#EFE7D4;
+    --color-text-primary:#2B2B2B;
+    --color-text-secondary:#6B6355;
+    --color-border:#E3DAC8;
+    --color-accent:#3E5C57;
+
+    /* Spacing — DESIGN.md §4 */
+    --space-8:8px;
+    --space-16:16px;
+    --space-24:24px;
+    --space-40:40px;
+    --space-64:64px;
+    --space-96:96px;
+    --card-padding:32px; /* DESIGN.md §5 卡片 padding */
+
+    /* Radius */
+    --radius-button:2px;
+    --radius-card:6px;
+
+    /* Type — DESIGN.md §3 */
+    --font-heading:"Noto Serif SC","Songti SC","SimSun",serif;
+    --font-body:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+    --size-title:42px;
+    --size-subtitle:30px;
+    --size-body:17px;
+    --size-minor:14px;
+    --size-caption:12px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--color-surface);
+    color:var(--color-text-primary);
+    font-family:var(--font-body);
+    font-size:var(--size-body);
+    font-weight:400;
+    line-height:1.9;
+  }
+
+  .page{
+    max-width:860px;
+    margin:0 auto;
+    padding:var(--space-64) 0 var(--space-96);
+  }
+
+  .masthead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:var(--space-16);
+    padding-bottom:var(--space-64);
+  }
+  .brand{
+    font-family:var(--font-heading);
+    font-size:var(--size-body);
+    font-weight:700;
+    letter-spacing:.32em;
+    color:var(--color-primary);
+  }
+  .brand-note{
+    font-size:var(--size-caption);
+    line-height:1.4;
+    letter-spacing:.12em;
+    color:var(--color-text-secondary);
+  }
+
+  .hero{
+    padding-bottom:var(--space-96);
+    border-bottom:1px solid var(--color-border);
+  }
+  .hero-title{
+    margin:0 0 var(--space-16);
+    font-family:var(--font-heading);
+    font-size:var(--size-title);
+    font-weight:700;
+    line-height:1.4;
+    letter-spacing:.06em;
+  }
+  .hero-sub{
+    margin:0 0 var(--space-40);
+    font-size:var(--size-body);
+    line-height:1.9;
+    color:var(--color-text-secondary);
+  }
+
+  .btn{
+    display:inline-block;
+    padding:14px 36px;
+    border:0;
+    border-radius:var(--radius-button);
+    background:var(--color-primary);
+    color:var(--color-surface);
+    font-family:var(--font-heading);
+    font-size:var(--size-body);
+    font-weight:700;
+    line-height:1.4;
+    letter-spacing:.16em;
+    text-decoration:none;
+    transition:background-color 150ms ease;
+  }
+  .btn:hover{background:var(--color-primary-hover);}
+  .btn:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px;}
+
+  .features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--space-24);
+    padding:var(--space-96) 0;
+  }
+  .card{
+    padding:var(--card-padding);
+    background:var(--color-surface-alt);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+  }
+  .card-index{
+    display:block;
+    font-size:var(--size-caption);
+    line-height:1.4;
+    letter-spacing:.24em;
+    color:var(--color-accent);
+  }
+  .card-title{
+    margin:var(--space-8) 0 var(--space-16);
+    font-family:var(--font-heading);
+    font-size:var(--size-subtitle);
+    font-weight:700;
+    line-height:1.4;
+    letter-spacing:.04em;
+  }
+  .card-text{
+    margin:0;
+    font-size:var(--size-body);
+    line-height:1.9;
+  }
+
+  .colophon{
+    display:flex;
+    justify-content:space-between;
+    gap:var(--space-16);
+    padding-top:var(--space-24);
+    border-top:1px solid var(--color-border);
+    font-size:var(--size-caption);
+    line-height:1.4;
+    color:var(--color-text-secondary);
+  }
+
+  @media (max-width:900px){
+    .page{padding-left:var(--space-24);padding-right:var(--space-24);}
+    .features{grid-template-columns:1fr;}
+  }
+  @media (max-width:600px){
+    .masthead{flex-direction:column;gap:var(--space-8);padding-bottom:var(--space-40);}
+    .hero{padding-bottom:var(--space-64);}
+    .features{padding:var(--space-64) 0;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <span class="brand">松烟</span>
+      <span class="brand-note">安徽泾县 · 手工宣纸</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1 class="hero-title">松烟宣纸</h1>
+        <p class="hero-sub">纸寿千年，墨分五色。以青檀之骨，承松烟之墨。</p>
+        <a class="btn" href="mailto:hello@songyan.example?subject=%E7%B4%A2%E5%8F%96%E7%BA%B8%E6%A0%B7">索取纸样</a>
+      </section>
+
+      <section class="features" aria-label="松烟宣纸的特性">
+        <article class="card">
+          <span class="card-index">其一</span>
+          <h2 class="card-title">檀皮为骨</h2>
+          <p class="card-text">青檀树皮与沙田稻草相济，皮料绵韧，草料疏松，长短纤维交织，纸寿千年。</p>
+        </article>
+        <article class="card">
+          <span class="card-index">其二</span>
+          <h2 class="card-title">百道工序</h2>
+          <p class="card-text">浸沤、蒸煮、漂洗、打浆、抄纸、晒纸，一百零八道工序，全凭一双手完成。</p>
+        </article>
+        <article class="card">
+          <span class="card-index">其三</span>
+          <h2 class="card-title">三年陈化</h2>
+          <p class="card-text">成纸入库存放三载，火气褪尽，落墨不洇不涩，宜书宜画，久藏不改其色。</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <span>松烟宣纸 · 泾县小岭</span>
+      <span>手工捞制 · 依古法</span>
+    </footer>
+  </div>
+</body>
+</html>

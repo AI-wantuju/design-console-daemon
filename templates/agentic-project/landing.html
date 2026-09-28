@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Revu · AI 代码审查 — 让每一次合并请求，都被读完一遍</title>
+<meta name="description" content="Revu 接进 GitHub、GitLab 与 Gitee，在合并请求打开的 40 秒内给出逐行意见：越权访问、竞态、缺失的测试。每条意见都带文件位置与修改建议。">
+<style>
+  /* ============ Design tokens (DESIGN.md §2) ============ */
+  :root{
+    /* 蓝本原始色值 —— 一个都没有改动 */
+    --white:#ffffff;
+    --ink:#0d0d0d;
+    --ink-soft:#1a1a1a;
+    --graphite:#3c3c3c;
+    --slate:#6e6e6e;
+    --ash:#9b9b9b;
+    --stone:#c4c4c4;
+    --cloud:#ececec;
+    --teal:#10a37f;
+    --teal-deep:#0a7a5e;
+    --teal-soft:#e8f5f0;
+
+    /* 深色角色分配 (DESIGN.md §0 / §2) */
+    --bg:var(--ink);
+    --surface:var(--ink-soft);
+    --divider:var(--graphite);
+    --t1:var(--white);
+    --t2:var(--stone);
+    --t3:var(--ash);
+    --t4:var(--slate);
+    --t-code:#e5e5e5;
+
+    /* 间距刻度 (DESIGN.md §5)：基数 4 */
+    --s4:4px;  --s8:8px;  --s12:12px; --s16:16px; --s24:24px;
+    --s32:32px; --s48:48px; --s64:64px; --s96:96px; --s128:128px;
+
+    --r-card:16px;
+    --r-ctl:12px;
+    --r-pill:9999px;
+
+    --shadow-hover:0 4px 16px rgba(13,13,13,0.06);
+    --focus-ring:0 0 0 3px rgba(16,163,127,0.12);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+
+    --font-display:'Signifier','Source Serif Pro',Georgia,'Songti SC','Noto Serif SC',serif;
+    --font-ui:'Söhne',Inter,system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    --font-mono:'Söhne Mono',ui-monospace,'JetBrains Mono',Menlo,Consolas,monospace;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--t2);
+    font-family:var(--font-ui);
+    font-size:16px;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,p,pre{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+
+  .container{max-width:1200px;margin:0 auto;padding:0 var(--s48)}
+  .section{padding:var(--s128) 0}
+  section[id]{scroll-margin-top:96px}
+
+  /* ============ Type scale (DESIGN.md §3) ============ */
+  .display{font-family:var(--font-display);font-size:56px;font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--t1)}
+  .h2{font-size:28px;font-weight:600;line-height:1.2;letter-spacing:-0.005em;color:var(--t1)}
+  .h3{font-size:20px;font-weight:600;line-height:1.3;color:var(--t1)}
+  .lede{font-size:18px;font-weight:400;line-height:1.6;color:var(--t2)}
+  .caption{font-size:13px;font-weight:500;line-height:1.4;letter-spacing:0.01em;color:var(--t3)}
+  .mono{font-family:var(--font-mono)}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:var(--s8);
+    font-family:var(--font-mono);font-size:12px;font-weight:500;
+    line-height:1.3;letter-spacing:0.04em;color:var(--t3);
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--teal);flex:none}
+
+  /* ============ Buttons (DESIGN.md §4) ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:var(--s8);
+    padding:10px 18px;border-radius:var(--r-ctl);border:1px solid transparent;
+    font-family:inherit;font-size:16px;font-weight:500;line-height:1.4;
+    transition:background-color 180ms var(--ease),
+               border-color 180ms var(--ease),
+               color 180ms var(--ease);
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--white);color:var(--ink)}
+  .btn-primary:hover{background:var(--cloud)}
+  .btn-secondary{background:transparent;color:var(--white);border-color:var(--divider)}
+  .btn-secondary:hover{background:var(--surface);border-color:var(--t4)}
+  .btn-quiet{background:transparent;color:var(--t3);padding:10px var(--s12)}
+  .btn-quiet:hover{color:var(--white);background:var(--surface)}
+  .btn-sm{font-size:14px;padding:8px 16px}
+  .btn:focus-visible,a:focus-visible{
+    outline:2px solid var(--teal);outline-offset:2px;border-radius:var(--r-ctl);
+    box-shadow:var(--focus-ring);
+  }
+
+  /* ============ Header ============ */
+  .site-header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--divider)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s24);height:72px}
+  .header-actions{display:flex;align-items:center;gap:var(--s12)}
+  .brand{display:inline-flex;align-items:center;gap:var(--s8)}
+  .brand-mark{
+    width:24px;height:24px;border-radius:8px;background:var(--white);
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .brand-name{font-size:16px;font-weight:600;letter-spacing:0.02em;color:var(--t1)}
+  .site-nav{display:flex;align-items:center;gap:var(--s32)}
+  .site-nav a{font-size:14px;line-height:1.55;color:var(--t3);transition:color 180ms var(--ease)}
+  .site-nav a:hover{color:var(--white)}
+
+  /* ============ Hero ============ */
+  .hero{padding:var(--s96) 0 var(--s64)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:var(--s64);align-items:center}
+  .hero-copy{max-width:640px}
+  .hero .display{margin-top:var(--s24)}
+  .hero .lede{margin-top:var(--s24)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:var(--s12);margin-top:var(--s32)}
+
+  /* Spec sheet：等宽字承担标签与度量 (DESIGN.md §1) */
+  .spec{margin:0;border-top:1px solid var(--divider)}
+  .spec-row{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s24);padding:var(--s16) 0;border-bottom:1px solid var(--divider)}
+  .spec-row dt{font-family:var(--font-mono);font-size:12px;font-weight:500;line-height:1.3;letter-spacing:0.04em;color:var(--t3)}
+  .spec-row dd{margin:0;font-family:var(--font-mono);font-size:14px;font-weight:500;line-height:1.4;color:var(--t2)}
+
+  /* ============ Showcase ============ */
+  .showcase{padding:var(--s64) 0 var(--s128)}
+
+  /* ============ Console (DESIGN.md §4) ============ */
+  .console{background:var(--surface);border-radius:var(--r-card);overflow:hidden}
+  .console-head{
+    display:flex;align-items:center;justify-content:space-between;gap:var(--s16);
+    padding:var(--s16) var(--s24);border-bottom:1px solid var(--divider);
+  }
+  .console-file{font-family:var(--font-mono);font-size:14px;font-weight:500;color:var(--t1)}
+  .tag{
+    display:inline-flex;align-items:center;flex:none;
+    padding:4px 10px;border-radius:var(--r-pill);
+    background:transparent;border:1px solid var(--divider);
+    font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--t2);
+  }
+  /* 主体两栏 #0d0d0d，中缝 1px #3c3c3c */
+  .console-split{display:grid;grid-template-columns:1.06fr 0.94fr;gap:1px;background:var(--divider)}
+  .console-pane{background:var(--bg);padding:var(--s24);min-width:0}
+  .pane-label{
+    font-family:var(--font-mono);font-size:12px;font-weight:500;
+    line-height:1.3;letter-spacing:0.04em;color:var(--t3);margin-bottom:var(--s16);
+  }
+  .code{
+    font-family:var(--font-mono);font-size:14px;font-weight:400;line-height:1.7;
+    color:var(--t-code);white-space:pre;overflow-x:auto;tab-size:2;
+  }
+  .tok-kw{color:var(--teal)}
+  .tok-str{color:var(--t2)}
+  .tok-com{color:var(--t3)}
+  .tok-hl{
+    display:inline-block;background:var(--teal-deep);color:var(--white);
+    border-radius:8px;padding:2px 8px;
+  }
+  .console-foot{
+    display:flex;align-items:center;flex-wrap:wrap;gap:var(--s16);
+    padding:var(--s16) var(--s24);border-top:1px solid var(--divider);
+  }
+  .rail-item{display:inline-flex;align-items:center;gap:var(--s8);
+    font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--t3)}
+  .dot{width:8px;height:8px;border-radius:var(--r-pill);background:var(--teal);flex:none}
+
+  /* ============ Findings ============ */
+  .finding{display:grid;grid-template-columns:auto 1fr;gap:var(--s12);padding:var(--s16) 0;border-bottom:1px solid var(--divider)}
+  .finding:first-of-type{padding-top:0}
+  .finding:last-of-type{border-bottom:0;padding-bottom:0}
+  .finding-idx{font-family:var(--font-mono);font-size:13px;font-weight:500;line-height:1.55;color:var(--teal)}
+  .finding-loc{font-family:var(--font-mono);font-size:13px;font-weight:500;line-height:1.4;letter-spacing:0.01em;color:var(--t1)}
+  .finding-text{margin-top:var(--s4);font-size:14px;line-height:1.55;color:var(--t2)}
+
+  /* ============ Section head ============ */
+  .section-head{max-width:720px}
+  .section-head .h2{margin-top:var(--s16)}
+  .section-head .lede{margin-top:var(--s16)}
+
+  /* ============ Cards & Pricing ============ */
+  .card{
+    background:var(--surface);border:1px solid transparent;
+    border-radius:var(--r-card);padding:var(--s32);
+    transition:border-color 180ms var(--ease);
+  }
+  .card:hover{border-color:var(--divider);box-shadow:var(--shadow-hover)}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s24);align-items:stretch;margin-top:var(--s48)}
+  .card-idx{
+    display:block;font-family:var(--font-mono);font-size:12px;font-weight:500;
+    line-height:1.3;letter-spacing:0.04em;color:var(--t3);
+  }
+  .card .h3{margin-top:var(--s16)}
+  .card-text{margin-top:var(--s12);font-size:14px;line-height:1.55;color:var(--t2)}
+  .card-meta{
+    margin-top:var(--s24);padding-top:var(--s16);border-top:1px solid var(--divider);
+    font-family:var(--font-mono);font-size:13px;font-weight:500;line-height:1.4;color:var(--t3);
+  }
+
+  .plan{display:flex;flex-direction:column;height:100%}
+  .plan-featured{border-color:var(--teal)}
+  .plan-featured:hover{border-color:var(--teal)}
+  .plan-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s12)}
+  .plan-name{font-size:20px;font-weight:600;line-height:1.3;color:var(--t1)}
+  .stamp{
+    display:inline-flex;align-items:center;flex:none;
+    padding:4px 10px;border-radius:var(--r-pill);
+    background:var(--teal-soft);color:var(--ink);
+    font-size:12px;font-weight:500;line-height:1.3;
+  }
+  .price{margin:var(--s24) 0 var(--s4);font-size:40px;font-weight:600;line-height:1.15;letter-spacing:-0.01em;color:var(--t1)}
+  .price span{font-size:16px;font-weight:400;letter-spacing:0;color:var(--t3)}
+  .plan-desc{font-size:14px;line-height:1.55;color:var(--t3)}
+  .plan ul{margin:var(--s24) 0 var(--s32);display:grid;gap:var(--s12)}
+  .plan li{display:grid;grid-template-columns:20px 1fr;gap:var(--s12);font-size:14px;line-height:1.55;color:var(--t2)}
+  .check{color:var(--teal);flex:none}
+  .plan .btn{margin-top:auto;width:100%}
+  .pricing-note{margin-top:var(--s24)}
+
+  /* ============ Footer ============ */
+  .site-footer{background:var(--bg);border-top:1px solid var(--divider);padding:var(--s64) 0 var(--s48)}
+  .footer-top{display:flex;justify-content:space-between;gap:var(--s48);flex-wrap:wrap}
+  .footer-brandcol{max-width:380px}
+  .footer-desc{margin-top:var(--s16);font-size:14px;line-height:1.55;color:var(--t2)}
+  .footer-cols{display:flex;align-items:flex-start;gap:var(--s64);flex-wrap:wrap}
+  .footer-col{min-width:120px}
+  .footer-col h3{
+    font-family:var(--font-mono);font-size:12px;font-weight:500;
+    line-height:1.3;letter-spacing:0.04em;color:var(--t3);margin:0 0 var(--s16);
+  }
+  .footer-col ul{display:grid;gap:var(--s12)}
+  .footer-col a{font-size:14px;line-height:1.55;color:var(--t2);transition:color 180ms var(--ease)}
+  .footer-col a:hover{color:var(--white)}
+  .footer-bottom{
+    display:flex;align-items:center;justify-content:space-between;gap:var(--s24);flex-wrap:wrap;
+    margin-top:var(--s64);padding-top:var(--s24);border-top:1px solid var(--divider);
+  }
+  .footer-legal{display:flex;align-items:center;gap:var(--s24);flex-wrap:wrap}
+  .footer-legal a{font-size:14px;line-height:1.55;color:var(--t3)}
+  .footer-legal a:hover{color:var(--white)}
+
+  /* 网格项默认 min-width:auto，会被 white-space:pre 的代码块撑破轨道 */
+  .hero-grid > *,.grid-3 > *,.console-split > *{min-width:0}
+
+  /* ============ Responsive ============ */
+  @media (max-width:1024px){
+    .hero-grid{gap:var(--s48)}
+    .footer-cols{gap:var(--s48)}
+  }
+  @media (max-width:860px){
+    .container{padding:0 var(--s24)}
+    .hero{padding:var(--s64) 0}
+    .section{padding:var(--s64) 0}
+    .showcase{padding:0 0 var(--s64)}
+    .hero-grid{grid-template-columns:1fr}
+    .display{font-size:40px}
+    .hero-copy{max-width:none}
+    .console-split{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:1fr;margin-top:var(--s32)}
+    .footer-top{flex-direction:column;gap:var(--s32)}
+    .footer-bottom{margin-top:var(--s48)}
+    .site-footer{padding:var(--s48) 0 var(--s32)}
+  }
+  @media (max-width:600px){
+    .site-nav{display:none}
+    .footer-cols{gap:var(--s32)}
+    .footer-col{min-width:calc(50% - var(--s16))}
+  }
+  @media (max-width:520px){
+    .header-actions .btn-quiet{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:1ms}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 3h8M2 6h5M2 9h8" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Revu</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#features">功能</a>
+      <a href="#pricing">定价</a>
+      <a href="#docs">文档</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-quiet" href="#docs">登录</a>
+      <a class="btn btn-primary btn-sm" href="#pricing">免费开始</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">REVU · CODE REVIEW v2.4</p>
+        <h1 class="display">让每一次合并请求，都被读完一遍。</h1>
+        <p class="lede">Revu 接进 GitHub、GitLab 或 Gitee。合并请求打开后的 40 秒内给出逐行意见：越权访问、竞态、空指针、缺失的测试。每条意见都带文件位置与修改建议，可以直接在 diff 里采纳。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">连接仓库</a>
+          <a class="btn btn-secondary" href="#review">看一次真实评审</a>
+        </div>
+      </div>
+
+      <dl class="spec">
+        <div class="spec-row"><dt>支持平台</dt><dd>GitHub · GitLab · Gitee</dd></div>
+        <div class="spec-row"><dt>部署方式</dt><dd>云端 / 自托管</dd></div>
+        <div class="spec-row"><dt>首轮意见</dt><dd>P50 38s</dd></div>
+        <div class="spec-row"><dt>合规</dt><dd>SOC 2 Type II</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ 评审控制台 (DESIGN.md §4) ============ -->
+  <section class="showcase">
+    <div class="container">
+      <div class="console" id="review">
+        <div class="console-head">
+          <span class="console-file">app/api/orders.py</span>
+          <span class="tag">review #4812</span>
+        </div>
+        <div class="console-split">
+          <div class="console-pane">
+            <p class="pane-label">DIFF · +12 −4</p>
+<pre class="code"><span class="tok-com">@router.get("/orders/{order_id}")</span>
+<span class="tok-kw">async def</span> get_order(order_id: str,
+                    user = Depends(current_user)):
+    order = <span class="tok-hl">await db.fetch_one(ORDER_SQL, order_id)</span>
+    <span class="tok-kw">if</span> order <span class="tok-kw">is</span> None:
+        <span class="tok-kw">raise</span> HTTPException(404, <span class="tok-str">"not found"</span>)
+    <span class="tok-kw">if</span> order.owner_id != user.id:
+        <span class="tok-kw">raise</span> HTTPException(403, <span class="tok-str">"forbidden"</span>)
+    <span class="tok-kw">return</span> order</pre>
+          </div>
+          <div class="console-pane">
+            <p class="pane-label">FINDINGS · 4</p>
+            <div class="finding">
+              <span class="finding-idx">01</span>
+              <div>
+                <p class="finding-loc">app/api/orders.py:34</p>
+                <p class="finding-text">租户字段未参与查询。鉴权发生在读取之后，跨租户的 order_id 会先把数据取出来。建议把 tenant_id 下推到 SQL 的 WHERE 子句。</p>
+              </div>
+            </div>
+            <div class="finding">
+              <span class="finding-idx">02</span>
+              <div>
+                <p class="finding-loc">app/api/orders.py:31</p>
+                <p class="finding-text">db.fetch_one 没有 statement timeout。慢查询会一直占着连接池，建议在连接上设置 3s 上限。</p>
+              </div>
+            </div>
+            <div class="finding">
+              <span class="finding-idx">03</span>
+              <div>
+                <p class="finding-loc">tests/test_orders.py</p>
+                <p class="finding-text">本次新增了 owner 校验，但没有对应的 403 分支测试。缺少覆盖，建议补一条跨用户读取的用例。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="console-foot">
+          <span class="rail-item"><span class="dot" aria-hidden="true"></span>已扫描 12 个文件</span>
+          <span class="rail-item">4 条意见 · 2 条阻断</span>
+          <span class="rail-item">38s · $0.011</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 三张功能卡 ============ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">FEATURES</p>
+        <h2 class="h2">审的是你的代码，不是别人的风格指南。</h2>
+        <p class="lede">通用模型会把团队的既定写法报成问题。Revu 先读你的仓库，再开口。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <span class="card-idx">01</span>
+          <h3 class="h3">逐行定位，不泛泛而谈</h3>
+          <p class="card-text">每条意见都绑定文件、行号与提交范围。点击直接落到 diff 的对应行，不用在评论区里来回翻找上下文。</p>
+          <p class="card-meta">意见附代码片段 · 平均 34 字</p>
+        </article>
+
+        <article class="card">
+          <span class="card-idx">02</span>
+          <h3 class="h3">先读仓库，再提意见</h3>
+          <p class="card-text">从历史提交、CODEOWNERS 与既有测试里归纳团队约定。已经被接受的写法不会重复报出，误报率按仓库持续收敛。</p>
+          <p class="card-meta">索引 12 种语言 · 自定义规则集</p>
+        </article>
+
+        <article class="card">
+          <span class="card-idx">03</span>
+          <h3 class="h3">代码默认不出网</h3>
+          <p class="card-text">自托管部署下，代码与索引都留在你的 VPC 内。每一次模型调用都写进审计日志，可以按仓库、按人导出。</p>
+          <p class="card-meta">VPC 内推理 · 审计日志可导出</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 定价 ============ -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">PRICING</p>
+        <h2 class="h2">按席位计费，不按 token 计费。</h2>
+        <p class="lede">开源仓库永久免费。付费档包含全部规则能力，不做「评审次数」这类阶梯限制。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card plan">
+          <div class="plan-head">
+            <h3 class="plan-name">开源</h3>
+          </div>
+          <p class="price">¥0 <span>/ 永久</span></p>
+          <p class="plan-desc">面向公开仓库与个人项目。</p>
+          <ul>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>公开仓库不限席位</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>无限次合并请求评审</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>默认规则集</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub App 一键安装</li>
+          </ul>
+          <a class="btn btn-secondary" href="#docs">安装到公开仓库</a>
+        </article>
+
+        <article class="card plan plan-featured">
+          <div class="plan-head">
+            <h3 class="plan-name">团队</h3>
+            <span class="stamp">最常选</span>
+          </div>
+          <p class="price">¥89 <span>/ 人 / 月</span></p>
+          <p class="plan-desc">面向私有仓库与 5 人以上的工程团队。</p>
+          <ul>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>私有仓库不限数量</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>自定义规则与阻断级别</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>仓库约定索引</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SAML SSO 与 Slack 通知</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>14 天全功能试用</li>
+          </ul>
+          <a class="btn btn-primary" href="#docs">开始 14 天试用</a>
+        </article>
+
+        <article class="card plan">
+          <div class="plan-head">
+            <h3 class="plan-name">企业</h3>
+          </div>
+          <p class="price">按需报价</p>
+          <p class="plan-desc">面向需要自托管与合规留存的团队。</p>
+          <ul>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>自托管，VPC 内推理</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>审计日志与数据留存策略</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>专属规则包与迁移支持</li>
+            <li><svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.5 3.5L15 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>99.9% 可用性承诺</li>
+          </ul>
+          <a class="btn btn-secondary" href="#docs">联系团队</a>
+        </article>
+      </div>
+
+      <p class="pricing-note caption">所有档位共用同一套评审引擎。价格以人民币计，不含税；年付按 10 个月结算。</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="site-footer" id="docs">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brandcol">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 3h8M2 6h5M2 9h8" stroke="#0d0d0d" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="brand-name">Revu</span>
+        </a>
+        <p class="footer-desc">AI 代码审查工具。接进你的 Git 服务，在合并请求里给出逐行、可采纳的意见。可自托管。</p>
+      </div>
+
+      <nav class="footer-cols" aria-label="页脚导航">
+        <div class="footer-col">
+          <h3>产品</h3>
+          <ul>
+            <li><a href="#features">功能</a></li>
+            <li><a href="#pricing">定价</a></li>
+            <li><a href="#review">评审示例</a></li>
+            <li><a href="#docs">更新日志</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>能力</h3>
+          <ul>
+            <li><a href="#features">规则引擎</a></li>
+            <li><a href="#features">约定索引</a></li>
+            <li><a href="#features">自托管</a></li>
+            <li><a href="#docs">审计日志</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>资源</h3>
+          <ul>
+            <li><a href="#docs">文档</a></li>
+            <li><a href="#docs">API 参考</a></li>
+            <li><a href="#docs">状态页</a></li>
+            <li><a href="#docs">安全说明</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>公司</h3>
+          <ul>
+            <li><a href="#docs">关于</a></li>
+            <li><a href="#docs">招聘</a></li>
+            <li><a href="#docs">隐私政策</a></li>
+            <li><a href="#docs">服务条款</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="caption">© 2026 Revu Labs · 保留所有权利</p>
+      <div class="footer-legal">
+        <a href="#docs">隐私</a>
+        <a href="#docs">条款</a>
+        <a href="#docs">SOC 2 Type II</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

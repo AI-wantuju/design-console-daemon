@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宜家新品上市｜三件让家更好用的家具</title>
+<style>
+  /* ===== Design tokens：全部取自 DESIGN.md，未列出的颜色/字号/间距一律不引入 ===== */
+  :root {
+    /* Color */
+    --color-primary: #0058A3;
+    --color-secondary: #FFDB00;
+    --color-surface: #FFFFFF;
+    --color-surface-page: #F5F5F5;
+    --color-surface-alt: #DFE8F2;
+    --color-text-primary: #111111;
+    --color-text-secondary: #484848;
+    --color-border: #DFDFDF;
+    --color-primary-hover: #004F93;
+    --color-secondary-hover: #F5CE00;
+    --color-price-red: #CC0008;
+
+    /* Typography */
+    --font-family: "Noto IKEA", "Noto Sans", "Noto Sans SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif;
+    --font-size-h1: 44px;
+    --font-size-h2: 32px;
+    --font-size-h3: 22px;
+    --font-size-body: 16px;
+    --font-size-small: 14px;
+    --font-size-caption: 12px;
+    --line-height-heading: 1.2;
+    --line-height-body: 1.6;
+
+    /* Spacing */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+
+    /* Radius / elevation */
+    --radius-card: 8px;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, .08);
+
+    /* Grid */
+    --container: 1280px;
+    --page-padding: 32px;
+    --transition: 150ms ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--color-surface-page);
+    color: var(--color-text-primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    line-height: var(--line-height-body);
+  }
+
+  h1, h2, h3 { margin: 0; line-height: var(--line-height-heading); letter-spacing: 0; font-weight: 700; }
+  h1 { font-size: var(--font-size-h1); }
+  h2 { font-size: var(--font-size-h2); }
+  h3 { font-size: var(--font-size-body); font-weight: 700; }
+  p { margin: 0; }
+  a { color: var(--color-primary); }
+
+  :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+  }
+
+  /* ===== 导航：IKEA 蓝条 + 白字 + 黄色 logo 块 + 当前项 3px 黄色下划线 ===== */
+  .site-header { background: var(--color-primary); }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 64px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    background: var(--color-secondary);
+    color: var(--color-text-primary);
+    font-weight: 700;
+    font-size: var(--font-size-body);
+    border-radius: var(--radius-card);
+    padding: var(--space-1) var(--space-2);
+    text-decoration: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-list a {
+    display: inline-block;
+    color: var(--color-surface);
+    font-size: var(--font-size-small);
+    text-decoration: none;
+    padding: var(--space-1) 0;
+    border-bottom: 3px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .nav-list a:hover { border-bottom-color: var(--color-secondary); }
+  .nav-list a[aria-current="page"] { border-bottom-color: var(--color-secondary); font-weight: 700; }
+
+  /* ===== Hero ===== */
+  .hero { padding: var(--space-6) 0; }
+
+  .hero__title { max-width: 880px; }
+  .hero__subtitle {
+    max-width: 720px;
+    margin-top: var(--space-2);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-body);
+  }
+  .hero__actions { margin-top: var(--space-4); }
+
+  /* ===== 按钮：黄底胶囊，深色文字（黄底禁止白字） ===== */
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: var(--font-size-body);
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 14px 32px;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: background-color var(--transition), border-color var(--transition);
+  }
+  .btn-primary:hover { background: var(--color-secondary-hover); border-color: var(--color-secondary-hover); }
+
+  /* ===== 信息条：surface-alt 浅蓝 ===== */
+  .info-bar {
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-card);
+    padding: var(--space-3);
+    margin-top: var(--space-5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .info-bar dt { font-size: var(--font-size-small); font-weight: 700; color: var(--color-primary); }
+  .info-bar dd { margin: var(--space-1) 0 0; font-size: var(--font-size-small); color: var(--color-text-secondary); }
+
+  /* ===== 商品区 ===== */
+  .products { padding-bottom: var(--space-6); }
+  .products__head { margin-bottom: var(--space-3); }
+  .products__note { margin-top: var(--space-1); color: var(--color-text-secondary); font-size: var(--font-size-small); }
+
+  /* 3 件商品：桌面端每卡占 12 列中的 4 列（3 列网格） */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    list-style: none;
+    padding: 0;
+  }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    transition: border-color var(--transition);
+  }
+  .card:hover { border-color: var(--color-primary); }
+
+  .card__media {
+    background: var(--color-surface-page);
+    border-radius: var(--radius-card);
+    height: 168px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card__media svg { width: 100%; height: 100%; }
+
+  .badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--color-surface-alt);
+    color: var(--color-primary);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    padding: 4px 12px;
+  }
+
+  .card__name { font-size: var(--font-size-body); }
+  .card__spec { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+
+  /* 价格是版面第一信息：金额 22px + 700，货币符号小一号并与单位同为次要色 */
+  .price {
+    margin-top: auto;
+    padding-top: var(--space-1);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-1);
+  }
+  .price__currency { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+  .price__amount { font-size: var(--font-size-h3); font-weight: 700; color: var(--color-primary); line-height: var(--line-height-heading); }
+  .price__unit { font-size: var(--font-size-small); color: var(--color-text-secondary); }
+
+  .card__link {
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .card__link:hover { color: var(--color-primary-hover); text-decoration: underline; }
+
+  /* ===== 页脚 ===== */
+  .site-footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+  }
+  .site-footer p { font-size: var(--font-size-caption); color: var(--color-text-secondary); }
+
+  /* ===== 响应式：640px / 1024px 断点，字号只回落到刻度内尺寸 ===== */
+  @media (max-width: 1023px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .info-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 639px) {
+    :root { --page-padding: 16px; }
+    h1 { font-size: var(--font-size-h2); }
+    h2 { font-size: var(--font-size-h3); }
+    .hero { padding: var(--space-5) 0; }
+    .product-grid { grid-template-columns: 1fr; }
+    .info-bar { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="container nav" aria-label="主导航">
+    <a class="logo" href="#top">IKEA</a>
+    <ul class="nav-list">
+      <li><a href="#new" aria-current="page">新品</a></li>
+      <li><a href="#new">客厅</a></li>
+      <li><a href="#new">餐厅</a></li>
+      <li><a href="#new">收纳</a></li>
+      <li><a href="#new">优惠</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 class="hero__title" id="hero-title">本期上新：3 件买回家就能用的家具</h1>
+      <p class="hero__subtitle">
+        三人沙发用可拆洗布套，弄脏了拆下来机洗；餐桌能从 120 cm 拉到 180 cm，平时靠墙、来客时坐得下 6 个人；书柜高 202 cm，柜门可以之后再加。尺寸、材质、价格都写在卡片上。
+      </p>
+      <div class="hero__actions">
+        <a class="btn-primary" href="#new">立即逛起来</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="new" aria-labelledby="products-title">
+    <div class="container">
+      <div class="products__head">
+        <h2 id="products-title">本期 3 件</h2>
+        <p class="products__note">门店现货，可到店自提或送货上门；未拆封 30 天内可退换。</p>
+      </div>
+
+      <ul class="product-grid">
+
+        <li>
+          <article class="card">
+            <div class="card__media" aria-hidden="true">
+              <svg viewBox="0 0 240 120" role="presentation" fill="none">
+                <rect x="20" y="52" width="200" height="40" rx="8" style="fill:var(--color-surface-alt);stroke:var(--color-primary);stroke-width:2"/>
+                <rect x="12" y="34" width="216" height="22" rx="8" style="fill:var(--color-surface-alt);stroke:var(--color-primary);stroke-width:2"/>
+                <rect x="28" y="92" width="8" height="16" style="fill:var(--color-primary)"/>
+                <rect x="204" y="92" width="8" height="16" style="fill:var(--color-primary)"/>
+                <rect x="60" y="60" width="52" height="24" rx="4" style="fill:var(--color-surface);stroke:var(--color-border);stroke-width:2"/>
+                <rect x="128" y="60" width="52" height="24" rx="4" style="fill:var(--color-surface);stroke:var(--color-border);stroke-width:2"/>
+              </svg>
+            </div>
+            <span class="badge">新品</span>
+            <h3 class="card__name">SÖDERBY 索德比 三人沙发</h3>
+            <p class="card__spec">浅灰可拆洗布套，实木框架。宽 220 × 深 88 × 高 78 cm。</p>
+            <p class="price">
+              <span class="price__currency">¥</span>
+              <span class="price__amount">3,499</span>
+              <span class="price__unit">/ 件</span>
+            </p>
+            <a class="card__link" href="#new">查看详情</a>
+          </article>
+        </li>
+
+        <li>
+          <article class="card">
+            <div class="card__media" aria-hidden="true">
+              <svg viewBox="0 0 240 120" role="presentation" fill="none">
+                <rect x="24" y="46" width="192" height="14" rx="6" style="fill:var(--color-surface-alt);stroke:var(--color-primary);stroke-width:2"/>
+                <rect x="44" y="60" width="10" height="46" style="fill:var(--color-primary)"/>
+                <rect x="186" y="60" width="10" height="46" style="fill:var(--color-primary)"/>
+                <rect x="128" y="46" width="88" height="14" rx="6" style="fill:var(--color-surface);stroke:var(--color-primary);stroke-width:2"/>
+                <rect x="112" y="74" width="10" height="32" style="fill:var(--color-primary)"/>
+                <rect x="16" y="26" width="44" height="26" rx="6" style="fill:var(--color-surface-alt);stroke:var(--color-border);stroke-width:2"/>
+                <rect x="180" y="26" width="44" height="26" rx="6" style="fill:var(--color-surface-alt);stroke:var(--color-border);stroke-width:2"/>
+              </svg>
+            </div>
+            <span class="badge">新品</span>
+            <h3 class="card__name">LÅNGVIK 朗维克 伸缩餐桌</h3>
+            <p class="card__spec">竹木贴面，120 cm 拉到 180 cm，坐 4 到 6 人。高 75 cm。</p>
+            <p class="price">
+              <span class="price__currency">¥</span>
+              <span class="price__amount">1,899</span>
+              <span class="price__unit">/ 件</span>
+            </p>
+            <a class="card__link" href="#new">查看详情</a>
+          </article>
+        </li>
+
+        <li>
+          <article class="card">
+            <div class="card__media" aria-hidden="true">
+              <svg viewBox="0 0 240 120" role="presentation" fill="none">
+                <rect x="70" y="14" width="100" height="96" rx="8" style="fill:var(--color-surface);stroke:var(--color-primary);stroke-width:2"/>
+                <rect x="80" y="26" width="80" height="22" style="fill:var(--color-surface-alt)"/>
+                <rect x="80" y="58" width="80" height="12" style="fill:var(--color-surface-alt)"/>
+                <rect x="80" y="80" width="80" height="12" style="fill:var(--color-surface-alt)"/>
+                <rect x="60" y="110" width="120" height="6" rx="3" style="fill:var(--color-border)"/>
+              </svg>
+            </div>
+            <span class="badge">新品</span>
+            <h3 class="card__name">BÄCKVALL 贝克瓦尔 三层书柜</h3>
+            <p class="card__spec">白色，宽 80 × 深 28 × 高 202 cm，两层隔板可调，柜门可后加。</p>
+            <p class="price">
+              <span class="price__currency">¥</span>
+              <span class="price__amount">499</span>
+              <span class="price__unit">/ 件</span>
+            </p>
+            <a class="card__link" href="#new">查看详情</a>
+          </article>
+        </li>
+
+      </ul>
+
+      <dl class="info-bar">
+        <div>
+          <dt>会员价</dt>
+          <dd>宜家俱乐部会员享会员价，结账时自动抵扣。</dd>
+        </div>
+        <div>
+          <dt>配送</dt>
+          <dd>门店现货，支持到店自提与送货上门，旧家具可回收。</dd>
+        </div>
+        <div>
+          <dt>退换</dt>
+          <dd>未拆封 30 天内可退换，凭小票或订单号办理。</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>价格、库存与服务内容以门店和官网为准。示例页面，用于设计系统验证。</p>
+  </div>
+</footer>
+
+</body>
+</html>

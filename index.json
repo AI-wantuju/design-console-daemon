@@ -1,0 +1,2238 @@
+{
+  "version": 1,
+  "updated": "2026-09-28T07:47:29.244Z",
+  "templates": [
+    {
+      "id": "admin-console-project",
+      "title": "深流 Deepflow 控制台 · 通用后台管理系统",
+      "category": "custom",
+      "description": "面向企业内部使用的通用后台管理系统。整体基调是\"生产环境控制台\"：极深的海军蓝黑底（#0B0F1A 系）配合高信息密度布局，深色侧边导航承载功能入口，玻璃质感卡片承载核心指标。数据即装饰——用真实的数值、环比箭头、状态点填充留白，不做插画和 emoji。信息层级清晰：左侧导航 → 顶部工具条 → 统计卡片 → 数据表格，一眼可定位操作入口。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "agentic-project",
+      "title": "Design System Inspired by OpenAI — 深色科技风改编",
+      "category": "AI & LLM / Developer Platform",
+      "description": "蓝本是「穿正装的研究实验室」。深色改编把它变成同一间实验室的夜间模式：画布是带轻微青调的近黑（`#0d0d0d`），卡片抬高一层到 `#1a1a1a`，两者之间靠表面明度而不是阴影分层。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "ai-3d-saas-project",
+      "title": "ai-3d-saas",
+      "category": "custom",
+      "description": "面向游戏、电商与工业设计团队的 AI 三维建模 SaaS。整体基调是\"深夜里的三维视口\"：极深的海军蓝黑底（#0B0F1A 系）压住画面，紫蓝霓虹渐变只用在需要牵引视线的地方——主标题关键词、主按钮、推荐档位描边、视口辉光。信息层以玻璃拟态卡片承载：4.5% 白色透明面 + 1px 微光描边，边缘比中心亮，模拟屏幕发光散射。点缀元素来自建模工具本身的语言：mono 字体的视口状态栏、token 消耗日志、三角面数、帧率、区域与构建号，让页面读起来像一台正在运行的工作站，而不是一张宣传海报。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "airbnb-project",
+      "title": "Design System Inspired by Airbnb",
+      "category": "E-Commerce & Retail",
+      "description": "Airbnb's 2026 design feels like a travel magazine that happens to be an app — pristine white canvases give way to full-bleed photography, and the interface itself disappears so the listings can breathe. The signature Rausch coral-pink (`#ff385c`) is used sparingly but unmistakably: search CTA, active tab indicator, primary action button, the occasional price or wishlist heart. Everything else is a disciplined grayscale, with `#222222` carrying almost every line of text.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "airtable-project",
+      "title": "Design System Inspired by Airtable",
+      "category": "Design & Creative",
+      "description": "Airtable's website is a clean, enterprise-friendly platform that communicates \"sophisticated simplicity\" through a white canvas with deep navy text (`#181d26`) and Airtable Blue (`#1b61c9`) as the primary interactive accent. The Haas font family (display + text variants) creates a Swiss-precision typography system with positive letter-spacing throughout.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "ant-project",
+      "title": "Design System Inspired by Ant",
+      "category": "Professional & Corporate",
+      "description": "Structured, enterprise-focused design system emphasizing clarity, consistency, and efficiency for data-dense web applications.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "apple-project",
+      "title": "Design System Inspired by Apple",
+      "category": "Media & Consumer",
+      "description": "Apple's web language is a precision editorial system that alternates between gallery-like calm and retail-density information blocks. The visual tone stays restrained: broad neutral canvases, quiet chrome, and product imagery given almost all of the expressive weight. The interface is engineered to disappear so hardware, materials, and finish options become the narrative foreground.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "application-project",
+      "title": "Design System Inspired by Application",
+      "category": "Professional & Corporate",
+      "description": "App dashboard with purple-themed aesthetic, top-bar navigation, card-based layouts, and developer-first workflows.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "arc-project",
+      "title": "Design System Inspired by Arc Browser",
+      "category": "Productivity & SaaS",
+      "description": "Arc Browser dissolves the boundary between the chrome and the page. Where Chrome and Safari treat the browser frame as a container, Arc treats it as scenery — the toolbar fades into the system wallpaper, the sidebar carries gradient warmth from the user's chosen \"theme color\", and translucency is everywhere. The visual signature is **frosted glass plus a single saturated gradient** — most often a peach-to-coral or violet-to-fuchsia bloom — that sets the emotional temperature of the entire window.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "artistic-project",
+      "title": "Design System Inspired by Artistic",
+      "category": "Creative & Artistic",
+      "description": "High-contrast, expressive style with creative typography and bold color choices for visually striking interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "atelier-zero-project",
+      "title": "Atelier Zero",
+      "category": "Editorial · Studio",
+      "description": "A small, high-craft studio's annual report rendered as a webpage. The",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-10469-project",
+      "title": "auto-10469",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-11541-project",
+      "title": "auto-11541",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-12846-project",
+      "title": "auto-12846",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-13333-project",
+      "title": "auto-13333",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-15461-project",
+      "title": "auto-15461",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-16709-project",
+      "title": "auto-16709",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-16715-project",
+      "title": "auto-16715",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-1693-project",
+      "title": "auto-1693",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-17366-project",
+      "title": "auto-17366",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-19187-project",
+      "title": "auto-19187",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-19637-project",
+      "title": "auto-19637",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-20152-project",
+      "title": "auto-20152",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-21022-project",
+      "title": "auto-21022",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-21275-project",
+      "title": "auto-21275",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-21527-project",
+      "title": "auto-21527",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-21790-project",
+      "title": "auto-21790",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-23874-project",
+      "title": "auto-23874",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-24449-project",
+      "title": "auto-24449",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-25408-project",
+      "title": "auto-25408",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-26866-project",
+      "title": "auto-26866",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-28978-project",
+      "title": "auto-28978",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-3162-project",
+      "title": "auto-3162",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-33847-project",
+      "title": "auto-33847",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-3411-project",
+      "title": "auto-3411",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-34826-project",
+      "title": "auto-34826",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-35181-project",
+      "title": "auto-35181",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-36862-project",
+      "title": "auto-36862",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-37781-project",
+      "title": "auto-37781",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-37908-project",
+      "title": "auto-37908",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-38054-project",
+      "title": "auto-38054",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-38251-project",
+      "title": "auto-38251",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-38276-project",
+      "title": "auto-38276",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-3999-project",
+      "title": "auto-3999",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-40449-project",
+      "title": "auto-40449",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-40978-project",
+      "title": "auto-40978",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-43148-project",
+      "title": "auto-43148",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-43168-project",
+      "title": "auto-43168",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-43622-project",
+      "title": "auto-43622",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-44424-project",
+      "title": "auto-44424",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-44465-project",
+      "title": "auto-44465",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-45190-project",
+      "title": "auto-45190",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-45808-project",
+      "title": "auto-45808",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-46547-project",
+      "title": "auto-46547",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-46555-project",
+      "title": "auto-46555",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-46688-project",
+      "title": "auto-46688",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-47448-project",
+      "title": "auto-47448",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-47690-project",
+      "title": "auto-47690",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-50216-project",
+      "title": "auto-50216",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-50310-project",
+      "title": "auto-50310",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-50813-project",
+      "title": "auto-50813",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-51247-project",
+      "title": "auto-51247",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-5182-project",
+      "title": "auto-5182",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-52277-project",
+      "title": "auto-52277",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-52312-project",
+      "title": "auto-52312",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-53461-project",
+      "title": "auto-53461",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-54383-project",
+      "title": "auto-54383",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-5470-project",
+      "title": "auto-5470",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-55505-project",
+      "title": "auto-55505",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-57921-project",
+      "title": "auto-57921",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-57965-project",
+      "title": "auto-57965",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-58247-project",
+      "title": "auto-58247",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-5920-project",
+      "title": "auto-5920",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-59748-project",
+      "title": "auto-59748",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-62014-project",
+      "title": "auto-62014",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-62608-project",
+      "title": "auto-62608",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-62948-project",
+      "title": "auto-62948",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-63133-project",
+      "title": "auto-63133",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-64076-project",
+      "title": "auto-64076",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-65698-project",
+      "title": "auto-65698",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-70415-project",
+      "title": "auto-70415",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-70899-project",
+      "title": "auto-70899",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-73181-project",
+      "title": "auto-73181",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-73262-project",
+      "title": "auto-73262",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-75444-project",
+      "title": "auto-75444",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-7660-project",
+      "title": "auto-7660",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-77748-project",
+      "title": "auto-77748",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-77867-project",
+      "title": "auto-77867",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-78291-project",
+      "title": "auto-78291",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-79990-project",
+      "title": "auto-79990",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-80211-project",
+      "title": "auto-80211",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-81315-project",
+      "title": "auto-81315",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-82216-project",
+      "title": "auto-82216",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-82268-project",
+      "title": "auto-82268",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-82670-project",
+      "title": "auto-82670",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-85225-project",
+      "title": "auto-85225",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-88358-project",
+      "title": "auto-88358",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-89792-project",
+      "title": "auto-89792",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-89912-project",
+      "title": "auto-89912",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-90543-project",
+      "title": "auto-90543",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-91071-project",
+      "title": "auto-91071",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-92478-project",
+      "title": "auto-92478",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-93194-project",
+      "title": "auto-93194",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-94066-project",
+      "title": "auto-94066",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-94317-project",
+      "title": "auto-94317",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-94866-project",
+      "title": "auto-94866",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-96147-project",
+      "title": "auto-96147",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-96382-project",
+      "title": "auto-96382",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-96641-project",
+      "title": "auto-96641",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-97797-project",
+      "title": "auto-97797",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-98407-project",
+      "title": "auto-98407",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "auto-98705-project",
+      "title": "auto-98705",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "beauty-brand-project",
+      "title": "美妆 · 轻奢品牌（Soft & Glam）",
+      "category": "柔美轻奢。裸粉 + 香槟金 + 象牙白，字体纤细优雅，产品图突出。",
+      "description": "柔美轻奢。裸粉 + 香槟金 + 象牙白，字体纤细优雅，产品图突出。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "bento-project",
+      "title": "Design System Inspired by Bento",
+      "category": "Layout & Structure",
+      "description": "Modular grid layout with card-like blocks, clear hierarchy, soft spacing, and subtle visual contrast for organized, scannable interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "binance-project",
+      "title": "Design System Inspired by Binance.US",
+      "category": "Fintech & Crypto",
+      "description": "Binance.US radiates the polished urgency of a digital trading floor — a space where money moves and decisions happen in seconds. The design is a two-tone composition that alternates between stark white trading surfaces and deep near-black panels (`#222126`), creating a visual rhythm that mirrors the bull-and-bear duality of crypto markets. Binance Yellow (`#F0B90B`) cuts through this monochrome foundation like a gold ingot on a steel desk — unmistakable, confident, and engineered to guide every eye toward the next action.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "bmw-m-project",
+      "title": "Design System Inspired by BMW M",
+      "category": "Automotive",
+      "description": "BMW M's analyzed editorial and marketing pages lean on a near-pure black canvas (`{colors.canvas}` — #000) holding white BMW Type Next Latin headlines in **confident UPPERCASE**. The system has no decorative voltage of its own; brand energy comes from **full-bleed automotive photography** — cars cornering at speed, carbon-fiber wheel detail, driver cockpit shots, motorsport pit lanes — placed as edge-to-edge content that fills entire bands. UI chrome around the photography stays minimal: thin sans-serif copy, dividers as 1px hairlines (`{colors.hairline}`), all-caps button labels with no fill until hovered.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "bmw-project",
+      "title": "Design System Inspired by BMW",
+      "category": "Automotive",
+      "description": "BMW's website is automotive engineering made visual — a design system that communicates precision, performance, and German industrial confidence. The page alternates between deep dark hero sections (featuring full-bleed automotive photography) and clean white content areas, creating a cinematic rhythm reminiscent of a luxury car showroom where vehicles are lit against darkness. The BMW CI2020 design language (their corporate identity refresh) defines every element.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "bold-project",
+      "title": "Design System Inspired by Bold",
+      "category": "Bold & Expressive",
+      "description": "Strong visual presence with heavyweight typography, high-contrast colors, and commanding layouts.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "brand-IKEA-宜家-project",
+      "title": "IKEA 宜家",
+      "category": "retail-democratic",
+      "description": "务实、明亮、大众化、家居感。浅灰白画布上，以 IKEA 蓝承载信息与价格，以 IKEA 黄承载行动（按钮、促销标签），高对比、零装饰。设计意图：像一本翻开的产品目录——价格清晰、信息直给、每个人都能看懂。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "brutalism-project",
+      "title": "Design System Inspired by Brutalism",
+      "category": "Bold & Expressive",
+      "description": "Raw, anti-design aesthetic inspired by concrete architecture with unadorned elements, jarring layouts, and functional minimalism.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "bugatti-project",
+      "title": "Design System Inspired by Bugatti",
+      "category": "Automotive",
+      "description": "Bugatti.com does not behave like a website — it behaves like a feature-length car film that a visitor happens to be standing inside. The canvas is pure `#000000`, the only color that appears at rest is white, and the entire page is carried by full-bleed hero video and photography with a single typographic moment laid over the top. There are no cards, no grids, no promotional modules, no newsletter signups, no three-column editorial layouts. It is one continuous cinema-black channel, interrupted only by the cars themselves and a few pill-shaped calls to action that quietly say things like \"EXPLORE OUR OPPORTUNITIES\" in ALL CAPS monospace.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cafe-project",
+      "title": "Design System Inspired by Cafe",
+      "category": "Creative & Artistic",
+      "description": "Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed browsing experience.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cal-project",
+      "title": "Design System Inspired by Cal.com",
+      "category": "Productivity & SaaS",
+      "description": "Cal.com's website is a masterclass in monochromatic restraint — a grayscale world where boldness comes not from color but from the sheer confidence of black text on white space. Inspired by Uber's minimal aesthetic, the palette is deliberately stripped of hue: near-black headings (`#242424`), mid-gray secondary text (`#898989`), and pure white surfaces. Color is treated as a foreign substance — when it appears (a rare blue link, a green trust badge), it feels like a controlled accent in an otherwise black-and-white photograph.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "canva-project",
+      "title": "Design System Inspired by Canva",
+      "category": "Design & Creative",
+      "description": "Canva is the friendly face of design tools — the brand makes a point of looking inviting where Adobe looks intimidating. The page is built on a clean white canvas (`#ffffff`) with a signature **purple-to-blue gradient** (`#7d2ae8` → `#00c4cc`) used in the brand mark, hero buttons, and Pro/Magic moments. Surfaces are generously padded, edges are gently rounded (8–16px), and shadows are soft and cool-toned.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "charity-warm-project",
+      "title": "公益 · 温暖同行（Trust & Warmth）",
+      "category": "温暖透明。暖黄 + 米白 + 灰蓝，情感真实，项目数据透明。",
+      "description": "温暖透明。暖黄 + 米白 + 灰蓝，情感真实，项目数据透明。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cisco-project",
+      "title": "Design System Inspired by Cisco",
+      "category": "Backend & Data",
+      "description": "Cisco's current public web presence is enterprise infrastructure rendered with cinematic restraint. The canvas is dark but not pure black: layered navy-charcoal surfaces create depth without resorting to glossy startup gradients. Bright Cisco Blue is used as a precise signal color rather than a wash across the page. The overall impression is \"serious global platform\" rather than \"friendly SaaS app\" — large high-confidence headlines, quiet chrome, and product imagery that emphasizes scale, networking, observability, and resilience.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "claude-project",
+      "title": "Design System Inspired by Claude (Anthropic)",
+      "category": "AI & LLM",
+      "description": "Claude's interface is a literary salon reimagined as a product page — warm, unhurried, and quietly intellectual. The entire experience is built on a parchment-toned canvas (`#f5f4ed`) that deliberately evokes the feeling of high-quality paper rather than a digital surface. Where most AI product pages lean into cold, futuristic aesthetics, Claude's design radiates human warmth, as if the AI itself has good taste in interior design.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "clay-project",
+      "title": "Design System Inspired by Clay",
+      "category": "Design & Creative",
+      "description": "Clay's website is a warm, playful celebration of color that treats B2B data enrichment like a craft rather than an enterprise chore. The design language is built on a foundation of warm cream backgrounds (`#faf9f7`) and oat-toned borders (`#dad4c8`, `#eee9df`) that give every surface the tactile quality of handmade paper. Against this artisanal canvas, a vivid swatch palette explodes with personality — Matcha green, Slushie cyan, Lemon gold, Ube purple, Pomegranate pink, Blueberry navy, and Dragonfruit magenta — each named like flavors at a juice bar, not colors in an enterprise UI kit.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "claymorphism-project",
+      "title": "Design System Inspired by Claymorphism",
+      "category": "Morphism & Effects",
+      "description": "Soft, rounded 3D-like shapes mimicking malleable clay with playful, puffy elements and colorful surfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "clean-project",
+      "title": "Design System Inspired by Clean",
+      "category": "Modern & Minimal",
+      "description": "Simplicity-focused design with ample whitespace, legible typography, and a limited color palette to reduce visual clutter.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "clickhouse-project",
+      "title": "Design System Inspired by ClickHouse",
+      "category": "Backend & Data",
+      "description": "ClickHouse's interface is a high-performance cockpit rendered in acid yellow-green on obsidian black — a design that screams \"speed\" before you read a single word. The entire experience lives in darkness: pure black backgrounds (`#000000`) with dark charcoal cards (`#414141` borders) creating a terminal-grade aesthetic where the only chromatic interruption is the signature neon yellow-green (`#faff69`) that slashes across CTAs, borders, and highlighted moments like a highlighter pen on a dark console.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cloudflare-kumo-project",
+      "title": "Cloudflare Kumo UI Design System",
+      "category": "Developer Tools",
+      "description": "",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cohere-project",
+      "title": "Design System Inspired by Cohere",
+      "category": "AI & LLM",
+      "description": "Cohere's interface is a polished enterprise command deck — confident, clean, and designed to make AI feel like serious infrastructure rather than a consumer toy. The experience lives on a bright white canvas where content is organized into generously rounded cards (22px radius) that create an organic, cloud-like containment language. This is a site that speaks to CTOs and enterprise architects: professional without being cold, sophisticated without being intimidating.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "coinbase-project",
+      "title": "Design System Inspired by Coinbase",
+      "category": "Fintech & Crypto",
+      "description": "Coinbase's website is a clean, trustworthy crypto platform that communicates financial reliability through a blue-and-white binary palette. The design uses Coinbase Blue (`#0052ff`) — a deep, saturated blue — as the singular brand accent against white and near-black surfaces. The proprietary font family includes CoinbaseDisplay for hero headlines, CoinbaseSans for UI text, CoinbaseText for body reading, and CoinbaseIcons for iconography — a comprehensive four-font system.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "colorful-project",
+      "title": "Design System Inspired by Colorful",
+      "category": "Bold & Expressive",
+      "description": "Vibrant, high-contrast palettes and gradients for engaging, memorable, and modern user experiences.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "composio-project",
+      "title": "Design System Inspired by Composio",
+      "category": "Backend & Data",
+      "description": "Composio's interface is a nocturnal command center — a dense, developer-focused darkness punctuated by electric cyan and deep cobalt signals. The entire experience is built on an almost-pure-black canvas (`#0f0f0f`) where content floats within barely-visible containment borders, creating the feeling of a high-tech control panel rather than a traditional marketing page. It's a site that whispers authority to developers who live in dark terminals.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "contemporary-project",
+      "title": "Design System Inspired by Contemporary",
+      "category": "Modern & Minimal",
+      "description": "Current-era minimalist design with bento grids, dark mode support, and high-performance accessible layouts.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "corporate-project",
+      "title": "Design System Inspired by Corporate",
+      "category": "Professional & Corporate",
+      "description": "Professional, brand-aligned design with structured grids, minimalist layouts, and consistent enterprise patterns.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cosmic-project",
+      "title": "Design System Inspired by Cosmic",
+      "category": "Creative & Artistic",
+      "description": "Futuristic sci-fi aesthetic with dark themes, vibrant neon accents, and immersive spatial elements.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "creative-project",
+      "title": "Design System Inspired by Creative",
+      "category": "Creative & Artistic",
+      "description": "Playful, character-driven design with expressive typography and bold graphics for landing pages and creative projects.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "culture-press-project",
+      "title": "文化 · 人文出版（Editorial & Timeless）",
+      "category": "人文书卷气。米白 + 墨黑 + 朱砂点缀，衬线排版，编辑部式栅格。",
+      "description": "人文书卷气。米白 + 墨黑 + 朱砂点缀，衬线排版，编辑部式栅格。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "cursor-project",
+      "title": "Design System Inspired by Cursor",
+      "category": "Developer Tools",
+      "description": "Cursor's website is a study in warm minimalism meets code-editor elegance. The entire experience is built on a warm off-white canvas (`#f2f1ed`) with dark warm-brown text (`#26251e`) -- not pure black, not neutral gray, but a deeply warm near-black with a yellowish undertone that evokes old paper, ink, and craft. This warmth permeates every surface: backgrounds lean toward cream (`#e6e5e0`, `#ebeae5`), borders dissolve into transparent warm overlays using `oklab` color space, and even the error state (`#cf2d56`) carries warmth rather than clinical red. The result feels more like a premium print publication than a tech website.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "dark-project",
+      "title": "Dark Futuristic",
+      "category": "dark-futuristic",
+      "description": "深色、未来感、高对比。深蓝黑底 + 青色/品红双强调色，等宽字体点缀营造\"终端/科技仪表盘\"气质。设计意图：科技、锐利、AI 原生。允许轻微辉光（glow）用于强调元素。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "dashboard-project",
+      "title": "Design System Inspired by Dashboard",
+      "category": "Professional & Corporate",
+      "description": "Dark-themed cloud-platform aesthetic with modular grids, glass-like panels, and strong data hierarchy for productivity dashboards.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "default-project",
+      "title": "Neutral Modern",
+      "category": "Starter",
+      "description": "",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "demo-cafe-project",
+      "title": "demo-cafe",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "design-console-site-project",
+      "title": "Design Console 官网",
+      "category": "AI-Native SaaS",
+      "description": "",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "discord-project",
+      "title": "Design System Inspired by Discord",
+      "category": "Productivity & SaaS",
+      "description": "Discord's product is engineered for evenings, raids, and group voice — so the entire surface is dark-first. The default canvas is the deep `Background Primary` (`#313338` light theme, `#1e1f22` dark theme), with chat columns layered on slightly lighter or darker shades to denote channels, threads, and side panels. The signature **Blurple** (`#5865f2`) is reserved for the brand mark, primary CTAs, mentions, and the \"you\" affordance — used sparingly so it pops against the muted neutrals.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "dithered-project",
+      "title": "Design System Inspired by Dithered",
+      "category": "Retro & Nostalgic",
+      "description": "Dot-pattern rendering technique that simulates shades with a limited palette for nostalgic, retro, high-contrast visuals.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "doodle-project",
+      "title": "Design System Inspired by Doodle",
+      "category": "Creative & Artistic",
+      "description": "Hand-drawn, sketch-like style with doodles, handwritten fonts, and imperfect lines for a playful, informal feel.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "dramatic-project",
+      "title": "Design System Inspired by Dramatic",
+      "category": "Bold & Expressive",
+      "description": "High-contrast, theatrical design with bold layouts, immersive visuals, and unconventional compositions that command attention.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "duolingo-project",
+      "title": "Design System Inspired by Duolingo",
+      "category": "Productivity & SaaS",
+      "description": "Duolingo is gamification rendered as visual language. The interface is unapologetically bright, with **owl green** (`#58cc02`) as the brand primary and a chunky 4px bottom-shadow on every interactive element that reads like a 3D button waiting to be pressed. The page is white (`#ffffff`) with thick 2–3px borders in a deep gray (`#e5e5e5`) and the entire system reads like an iOS app from 2015 reborn with better hierarchy.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "editorial-project",
+      "title": "Design System Inspired by Editorial",
+      "category": "Creative & Artistic",
+      "description": "Magazine-inspired editorial layout with refined serif typography, structured grids, and elegant reading experiences.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "edu-kids-project",
+      "title": "教育 · 快乐学习（Playful & Bright）",
+      "category": "活泼明亮。亮橙 + 天青 + 明黄，大圆角、胖胖按钮、插画感强。",
+      "description": "活泼明亮。亮橙 + 天青 + 明黄，大圆角、胖胖按钮、插画感强。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "elegant-project",
+      "title": "Design System Inspired by Elegant",
+      "category": "Professional & Corporate",
+      "description": "Graceful, refined aesthetic with delicate typography, minimal palettes, and polished layouts that exude sophistication.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "elevenlabs-project",
+      "title": "Design System Inspired by ElevenLabs",
+      "category": "AI & LLM",
+      "description": "ElevenLabs' website is a study in restrained elegance — a near-white canvas (`#ffffff`, `#f5f5f5`) where typography and subtle shadows do all the heavy lifting. The design feels like a premium audio product brochure: clean, spacious, and confident enough to let the content speak (literally, given ElevenLabs makes voice AI). There's an almost Apple-like quality to the whitespace strategy, but warmer — the occasional warm stone tint (`#f5f2ef`, `#777169`) prevents the purity from feeling clinical.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "energetic-project",
+      "title": "Design System Inspired by Energetic",
+      "category": "Bold & Expressive",
+      "description": "Dynamic, vibrant style with thick borders, geometric shapes, high-contrast colors, and expressive typography conveying motion and vitality.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "enterprise-project",
+      "title": "Design System Inspired by Enterprise",
+      "category": "Professional & Corporate",
+      "description": "Clean, high-contrast enterprise design for data-driven workflows with intuitive drag-and-drop patterns and structured layouts.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "expo-project",
+      "title": "Design System Inspired by Expo",
+      "category": "Developer Tools",
+      "description": "Expo's interface is a luminous, confidence-radiating developer platform built on the premise that tools for building apps should feel as polished as the apps themselves. The entire experience lives on a bright, airy canvas — a cool-tinted off-white (`#f0f0f3`) that gives the page a subtle technological coolness without the starkness of pure white. This is a site that breathes: enormous vertical spacing between sections creates a gallery-like pace where each feature gets its own \"room.\"",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "expressive-project",
+      "title": "Design System Inspired by Expressive",
+      "category": "Bold & Expressive",
+      "description": "Vibrant, personality-driven design with bold colors, playful graphics, and dynamic layouts that balance creativity with structure.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "fantasy-project",
+      "title": "Design System Inspired by Fantasy",
+      "category": "Creative & Artistic",
+      "description": "Game-inspired fantasy aesthetic with bold, premium visuals, rich color palettes, and immersive thematic elements.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "ferrari-project",
+      "title": "Design System Inspired by Ferrari",
+      "category": "Automotive",
+      "description": "Ferrari's website is a digital editorial — a curated magazine where the Prancing Horse brand is presented with the gravitas of an art institution and the precision of Italian coachwork. The page opens onto an expanse of absolute black, broken only by the iconic Prancing Horse emblem floating alone in its own atmosphere. Below, the content unfolds in dramatic alternations between inky-dark cinematic sections and crisp white editorial panels. This chiaroscuro rhythm — darkness yielding to light, machinery yielding to human story — feels more like paging through a Ferrari yearbook than scrolling a commercial website. Every section is a curated vignette: a concept car dissolving from shadow, two F1 drivers posed with sculptural stillness, a lineup of production models arranged in a jewel-toned parade.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "figma-project",
+      "title": "Design System Inspired by Figma",
+      "category": "Design & Creative",
+      "description": "Figma's interface is the design tool that designed itself — a masterclass in typographic sophistication where a custom variable font (figmaSans) modulates between razor-thin (weight 320) and bold (weight 700) with stops at unusual intermediates (330, 340, 450, 480, 540) that most type systems never explore. This granular weight control gives every text element a precisely calibrated visual weight, creating hierarchy through micro-differences rather than the blunt instrument of \"regular vs bold.\"",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "finance-bank-project",
+      "title": "金融 · 信任银行（Trust & Precision）",
+      "category": "专业可信、严谨克制。深蓝 + 暖金点缀，突出安全感与机构感。",
+      "description": "专业可信、严谨克制。深蓝 + 暖金点缀，突出安全感与机构感。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "flat-project",
+      "title": "Design System Inspired by Flat",
+      "category": "Modern & Minimal",
+      "description": "Two-dimensional minimalist style with vibrant colors, clean typography, and no 3D effects for fast, user-friendly interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "framer-project",
+      "title": "Design System Inspired by Framer",
+      "category": "Design & Creative",
+      "description": "Framer's website is a cinematic, tool-obsessed dark canvas that radiates the confidence of a design tool built by designers who worship craft. The entire experience is drenched in pure black — not a warm charcoal or a cozy dark gray, but an absolute void (`#000000`) that makes every element, every screenshot, every typographic flourish feel like it's floating in deep space. This is a website that treats its own product UI as the hero art, embedding full-fidelity screenshots and interactive demos directly into the narrative flow.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "friendly-project",
+      "title": "Design System Inspired by Friendly",
+      "category": "Creative & Artistic",
+      "description": "Approachable, intuitive design with rounded elements, ample whitespace, and soft pastel color palettes.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "futuristic-project",
+      "title": "Design System Inspired by Futuristic",
+      "category": "Themed & Unique",
+      "description": "Forward-looking design with tech-inspired typography, modern layouts, and a sleek, innovation-driven aesthetic.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "github-project",
+      "title": "Design System Inspired by GitHub",
+      "category": "Developer Tools",
+      "description": "GitHub's surface is engineered, not decorated. Every pixel announces a stance: this is a tool for people who care about diffs, builds, and pull requests. The page background is a clean `#ffffff` (light) or `#0d1117` (dark), with content arranged on dense rectangular panes separated by hairline borders rather than negative space. Information density is the brand — list rows, code lines, repository headers, and notification cards are all packed close together so a power user can scan a hundred items without scrolling.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "glassmorphism-project",
+      "title": "Design System Inspired by Glassmorphism",
+      "category": "Morphism & Effects",
+      "description": "Frosted glass effect with translucent layers, subtle blur, and luminous borders for depth and modern elegance.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "gradient-project",
+      "title": "Design System Inspired by Gradient",
+      "category": "Morphism & Effects",
+      "description": "Smooth color transitions and gradient-rich surfaces for modern, playful interfaces with visual depth.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "guofeng-project",
+      "title": "国风·宣纸",
+      "category": "chinese-guofeng",
+      "description": "水墨国风、宣纸质感。宣纸米白底 + 墨黑文字 + 朱砂红点缀 + 黛青辅助，宋体衬线营造东方书卷气。设计意图：雅致、留白、有文化厚度。可选用极细的墨线分隔。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "hashicorp-project",
+      "title": "Design System Inspired by HashiCorp",
+      "category": "Backend & Data",
+      "description": "HashiCorp's website is enterprise infrastructure made tangible — a design system that must communicate the complexity of cloud infrastructure management while remaining approachable. The visual language splits between two modes: a clean white light-mode for informational sections and a dramatic dark-mode (`#15181e`, `#0d0e12`) for hero areas and product showcases, creating a day/night duality that mirrors the \"build in light, deploy in dark\" developer workflow.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "hud-project",
+      "title": "HUD Design System",
+      "category": "Themed & Unique",
+      "description": "A **combat pilot's glass cockpit** — everything readable in a split second, in any light condition, under any G-load. The HUD projects critical flight data directly into the pilot's line of sight so they never have to look down. Translucency and glow replace depth and shadow. Every element is functional or it doesn't exist.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "huggingface-project",
+      "title": "Design System Inspired by Hugging Face",
+      "category": "AI & LLM",
+      "description": "Hugging Face is the rare ML brand that refuses to look serious. The hub leans into a sunshine-yellow accent (`#ffd21e`), a cartoon hugging-face emoji as the logo, and a confident **IBM Plex Mono** voice that reads more like a community zine than a research lab. The page background is a clean off-white (`#fafafa`) with text in a deep slate (`#0d1117`), and the yellow appears in pull quotes, tags, \"new\" badges, and the model-card header strip — never as an entire surface, always as punctuation.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "ibm-project",
+      "title": "Design System Inspired by IBM",
+      "category": "Media & Consumer",
+      "description": "IBM's website is the digital embodiment of enterprise authority built on the Carbon Design System — a design language so methodically structured it reads like an engineering specification rendered as a webpage. The page operates on a stark duality: a bright white (`#ffffff`) canvas with near-black (`#161616`) text, punctuated by a single, unwavering accent — IBM Blue 60 (`#0f62fe`). This isn't playful tech-startup minimalism; it's corporate precision distilled into pixels. Every element exists within Carbon's rigid 2x grid, every color maps to a semantic token, every spacing value snaps to the 8px base unit.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "intercom-project",
+      "title": "Design System Inspired by Intercom",
+      "category": "Productivity & SaaS",
+      "description": "Intercom's website is a warm, confident customer service platform that communicates \"AI-first helpdesk\" through a clean, editorial design language. The page operates on a warm off-white canvas (`#faf9f6`) with off-black (`#111111`) text, creating an intimate, magazine-like reading experience. The signature Fin Orange (`#ff5600`) — named after Intercom's AI agent — serves as the singular vibrant accent against the warm neutral palette.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "kami-project",
+      "title": "Design System Inspired by kami (紙 / 纸)",
+      "category": "Editorial & Print",
+      "description": "kami compresses into one sentence: **warm parchment canvas, ink-blue accent, serif carries hierarchy, no cool grays, no hard shadows.** It is not a UI framework — it is a constraint system for the page, designed to keep deliverables stable, clear, and unmistakably *printed*. The name reads as **kami / 紙 / 纸** — the same word for \"paper\" across Japanese and Chinese — and the system is co-designed across English, Simplified Chinese, and Japanese typesetting from the ground up, not retrofitted.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "kraken-project",
+      "title": "Design System Inspired by Kraken",
+      "category": "Fintech & Crypto",
+      "description": "Kraken's website is a clean, trustworthy crypto exchange that uses purple as its commanding brand color. The design operates on white backgrounds with Kraken Purple (`#7132f5`, `#5741d8`, `#5b1ecf`) creating a distinctive, professional crypto identity. The proprietary Kraken-Brand font handles display headings with bold (700) weight and negative tracking, while Kraken-Product (with IBM Plex Sans fallback) serves as the UI workhorse.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "lamborghini-project",
+      "title": "Design System Inspired by Lamborghini",
+      "category": "Automotive",
+      "description": "Lamborghini's website is a cathedral of darkness — a digital stage where jet-black surfaces stretch infinitely and every element emerges from the void like a machine under a spotlight. The page is almost entirely black. Not dark gray, not near-black — true, uncompromising black (`#000000`) that saturates the viewport and refuses to yield. Into this abyss, white type and Lamborghini Gold (`#FFC000`) are deployed with surgical precision, creating a visual language that feels like walking through a nighttime motorsport event where every surface absorbs light except the things that matter.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "launch-project",
+      "title": "发布会·暗场",
+      "category": "event-launch",
+      "description": "产品发布会暗场感。深空黑底 + 霓虹青/品红双强调 + 大字号极简标题，允许轻微辉光。设计意图：科技、隆重、一眼吸睛。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "levels-project",
+      "title": "Design System Inspired by Levels",
+      "category": "Layout & Structure",
+      "description": "Conversion-focused design that removes friction and guides users toward action through clarity, trust, and speed.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "linear-app-project",
+      "title": "Design System Inspired by Linear",
+      "category": "Productivity & SaaS",
+      "description": "Linear's website is a masterclass in dark-mode-first product design — a near-black canvas (`#08090a`) where content emerges from darkness like starlight. The overall impression is one of extreme precision engineering: every element exists in a carefully calibrated hierarchy of luminance, from barely-visible borders (`rgba(255,255,255,0.05)`) to soft, luminous text (`#f7f8f8`). This is not a dark theme applied to a light design — it is darkness as the native medium, where information density is managed through subtle gradations of white opacity rather than color variation.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "lingo-project",
+      "title": "Design System Inspired by Lingo",
+      "category": "Creative & Artistic",
+      "description": "Playful, minimal design with bright colors, rounded shapes, tactile 3D borders, and friendly illustrations for approachable interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "loom-project",
+      "title": "Loom Design System",
+      "category": "Themed & Unique",
+      "description": "A friendly, fast video-first async communication tool. Loom's design feels like a well-made productivity app — approachable, clean, and professional without being corporate. Purple accent (#625DF5) signals creativity and video without being loud. Information density is moderate, with generous whitespace that lets content breathe.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "lovable-project",
+      "title": "Design System Inspired by Lovable",
+      "category": "Developer Tools",
+      "description": "Lovable's website radiates warmth through restraint. The entire page sits on a creamy, parchment-toned background (`#f7f4ed`) that immediately separates it from the cold-white conventions of most developer tool sites. This isn't minimalism for minimalism's sake — it's a deliberate choice to feel approachable, almost analog, like a well-crafted notebook. The near-black text (`#1c1c1c`) against this warm cream creates a contrast ratio that's easy on the eyes while maintaining sharp readability.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "luxury-project",
+      "title": "Design System Inspired by Luxury",
+      "category": "Professional & Corporate",
+      "description": "High-end dark aesthetic with bold headings, monochromatic palette, and premium feel for luxury brand experiences.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "magazine-project",
+      "title": "杂志·编辑部",
+      "category": "editorial-magazine",
+      "description": "都市杂志编辑感。纯白底 + 近黑文字 + 单一国际红强调，大字号衬线标题、多栏栅格。设计意图：摩登、锐利、内容为王。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mastercard-project",
+      "title": "Design System Inspired by Mastercard",
+      "category": "Fintech & Crypto",
+      "description": "Mastercard's experience reads like a warm, editorial magazine built from soft stone and signal orange. The canvas is a muted putty-cream (`#F3F0EE`) — not white, not gray, but a color that feels like the paper of a premium annual report. On top of that canvas, everything that matters is shaped like a stadium, a pill, or a perfect circle. The dominant visual gesture is the **oversized radius**: heroes carry 40-point corners, cards go fully pill-shaped, service images are cropped into circular orbits, and buttons either complete the pill or fit snugly at 20 points. There are almost no sharp corners anywhere on the page.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "material-project",
+      "title": "Design System Inspired by Material",
+      "category": "Professional & Corporate",
+      "description": "Google's Material Design with layered surfaces, dynamic theming, built-in motion, and responsive cross-platform patterns.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "medical-clinic-project",
+      "title": "医疗 · 专业诊所（Calm & Care）",
+      "category": "舒缓可信。青蓝 + 暖白，大圆角与柔和阴影降低焦虑感。",
+      "description": "舒缓可信。青蓝 + 暖白，大圆角与柔和阴影降低焦虑感。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "meta-project",
+      "title": "Design System Inspired by Meta (Store)",
+      "category": "E-Commerce & Retail",
+      "description": "The Meta Store is a product-forward retail experience built to sell hardware — Quest VR headsets, Ray-Ban Meta smart glasses, and accessories. The design walks a tightrope between consumer electronics showroom and lifestyle editorial, deploying cinematic product photography against expansive white canvas to create a gallery-like sense of aspiration. Every design decision serves the merchandise: generous negative space frames hero product shots like museum pieces, while alternating light and dark surface sections create a visual rhythm that mimics the experience of walking through a physical retail space.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "minimal-project",
+      "title": "Design System Inspired by Minimal",
+      "category": "Modern & Minimal",
+      "description": "Stripped-back design emphasizing whitespace, clean typography, and restrained color for maximum clarity and focus.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "minimax-project",
+      "title": "Design System Inspired by MiniMax",
+      "category": "AI & LLM",
+      "description": "MiniMax's website is a clean, product-showcase platform for a Chinese AI technology company that bridges consumer-friendly appeal with technical credibility. The design language is predominantly white-space-driven with a light, airy feel — pure white backgrounds (`#ffffff`) dominate, letting colorful product cards and AI model illustrations serve as the visual anchors. The overall aesthetic sits at the intersection of Apple's product marketing clarity and a playful, rounded design language that makes AI technology feel approachable.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mintlify-project",
+      "title": "Design System Inspired by Mintlify",
+      "category": "Productivity & SaaS",
+      "description": "Mintlify's website is a study in documentation-as-product design — a white, airy, information-rich surface that treats clarity as its highest aesthetic value. The page opens with a luminous white (`#ffffff`) background, near-black (`#0d0d0d`) text, and a signature green brand accent (`#18E299`) that signals freshness and intelligence without dominating the palette. The overall mood is calm, confident, and engineered for legibility — a design system that whispers \"we care about your developer experience\" in every pixel.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "miro-project",
+      "title": "Design System Inspired by Miro",
+      "category": "Design & Creative",
+      "description": "Miro's website is a clean, collaborative-tool-forward platform that communicates \"visual thinking\" through generous whitespace, pastel accent colors, and a confident geometric font. The design uses a predominantly white canvas with near-black text (`#1c1c1e`) and a distinctive pastel color palette — coral, rose, teal, orange, yellow, moss — each representing different collaboration contexts.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mission-control-project",
+      "title": "Mission Control Design System",
+      "category": "Developer Tools",
+      "description": "A **deep space command center** — dark, information-dense, unambiguous. Every pixel earns its place. The aesthetic draws from NASA mission control rooms, SpaceX launch consoles, and ISRO's mission operations complex. Amber data on navy is the core contrast pair; everything else is subdued.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mistral-ai-project",
+      "title": "Design System Inspired by Mistral AI",
+      "category": "AI & LLM",
+      "description": "Mistral AI's interface is a sun-drenched landscape rendered in code — a warm, bold, unapologetically European design that trades the typical blue-screen AI aesthetic for golden amber, burnt orange, and the feeling of late-afternoon light in southern France. Every surface glows with warmth: backgrounds fade from pale cream to deep amber, shadows carry golden undertones (`rgba(127, 99, 21, ...)`), and the brand's signature orange (`#fa520f`) burns through the page like a signal fire.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "modern-project",
+      "title": "Design System Inspired by Modern",
+      "category": "Modern & Minimal",
+      "description": "Contemporary editorial style with serif typography, minimal palettes, and clean layouts for polished digital products.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mongodb-project",
+      "title": "Design System Inspired by MongoDB",
+      "category": "Backend & Data",
+      "description": "MongoDB's website is a deep-forest-meets-terminal experience — a design system rooted in the darkest teal-black (`#001e2b`) that evokes both the density of a database and the depth of a forest canopy. Against this near-black canvas, a striking neon green (`#00ed64`) pulses as the brand accent — bright enough to feel electric, organic enough to feel alive. This isn't the cold neon of cyberpunk; it's the bioluminescent green of something growing in the dark.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "mono-project",
+      "title": "Design System Inspired by Mono",
+      "category": "Modern & Minimal",
+      "description": "Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a hacker-chic aesthetic.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "neobrutalism-project",
+      "title": "Design System Inspired by Neobrutalism",
+      "category": "Bold & Expressive",
+      "description": "Modern take on brutalism with bold borders, vivid accent colors, and raw, high-contrast layouts on warm surfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "neon-project",
+      "title": "Design System Inspired by Neon",
+      "category": "Morphism & Effects",
+      "description": "Electric neon glow effects with high-contrast color pairings for bold, attention-grabbing interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "neumorphism-project",
+      "title": "Design System Inspired by Neumorphism",
+      "category": "Morphism & Effects",
+      "description": "Soft, extruded UI elements with inner and outer shadows on monochromatic surfaces for a tactile, embedded look.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "nike-project",
+      "title": "Design System Inspired by Nike",
+      "category": "E-Commerce & Retail",
+      "description": "Nike.com is a kinetic retail cathedral — a site that channels the explosive energy of sport into a digital shopping experience. The design operates on a principle of radical simplicity: strip everything back to black, white, and grey so that athletic photography and product color can dominate without competition. The result feels less like a website and more like a sports editorial laid out with the precision of a luxury magazine. Every pixel of real estate is either selling product or driving toward product.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "notion-project",
+      "title": "Design System Inspired by Notion",
+      "category": "Productivity & SaaS",
+      "description": "Notion's website embodies the philosophy of the tool itself: a blank canvas that gets out of your way. The design system is built on warm neutrals rather than cold grays, creating a distinctly approachable minimalism that feels like quality paper rather than sterile glass. The page canvas is pure white (`#ffffff`) but the text isn't pure black -- it's a warm near-black (`rgba(0,0,0,0.95)`) that softens the reading experience imperceptibly. The warm gray scale (`#f6f5f4`, `#31302e`, `#615d59`, `#a39e98`) carries subtle yellow-brown undertones, giving the interface a tactile, almost analog warmth.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "nvidia-project",
+      "title": "Design System Inspired by NVIDIA",
+      "category": "Media & Consumer",
+      "description": "NVIDIA's website is a high-contrast, technology-forward experience that communicates raw computational power through design restraint. The page is built on a stark black (`#000000`) and white (`#ffffff`) foundation, punctuated by NVIDIA's signature green (`#76b900`) -- a color so specific it functions as a brand fingerprint. This is not the lush green of nature; it's the electric, lime-shifted green of GPU-rendered light, a color that sits between chartreuse and kelly green and immediately signals \"NVIDIA\" to anyone in technology.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "ollama-project",
+      "title": "Design System Inspired by Ollama",
+      "category": "AI & LLM",
+      "description": "Ollama's interface is radical minimalism taken to its logical conclusion — a pure-white void where content floats without decoration, shadow, or color. The design philosophy mirrors the product itself: strip away everything unnecessary until only the essential tool remains. This is the digital equivalent of a Dieter Rams object — every pixel earns its place, and the absence of design IS the design.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "openai-project",
+      "title": "Design System Inspired by OpenAI",
+      "category": "AI & LLM",
+      "description": "OpenAI's product surface reads like a research lab dressed for the public — clinical, restrained, deliberately quiet. The page background is a true white (`#ffffff`) layered against a near-black ink (`#0d0d0d`) with a subtle teal undertone, so even the text feels slightly cooled rather than aggressively dark. The result is a chromatic neutrality that puts model output, code, and prose front and center, not the chrome around them.",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "opencode-ai-project",
+      "title": "Design System Inspired by OpenCode",
+      "category": "AI & LLM",
+      "description": "OpenCode's website embodies a terminal-native, monospace-first aesthetic that reflects its identity as an open source AI coding agent. The entire visual system is built on a stark dark-on-light contrast using a near-black background (`#201d1d`) with warm off-white text (`#fdfcfc`). This isn't a generic dark theme -- it's a warm, slightly reddish-brown dark that feels like a sophisticated terminal emulator rather than a cold IDE. The warm undertone in both the darks and lights (notice the subtle red channel in `#201d1d` -- rgb(32, 29, 29)) creates a cohesive, lived-in quality.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "pacman-project",
+      "title": "Design System Inspired by Pacman",
+      "category": "Themed & Unique",
+      "description": "Retro arcade-inspired design with pixel fonts, dotted borders, playful high-contrast colors, and 8-bit game aesthetics.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "paper-project",
+      "title": "Design System Inspired by Paper",
+      "category": "Retro & Nostalgic",
+      "description": "Paper-textured, print-inspired design with minimal colors, clean serif/sans typography, and tactile surface qualities.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "perplexity-project",
+      "title": "Design System Inspired by Perplexity AI",
+      "category": "AI & LLM",
+      "description": "Perplexity reads like a research terminal: unhurried, precise, and confident. The dark surface is not decorative — it reduces visual noise so citations, sources, and answers can breathe. There is no gradient hero, no animated blob, no hero illustration. The chrome disappears and the content leads. Light mode exists but the dark variant is the brand-defining surface.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "perspective-project",
+      "title": "Design System Inspired by Perspective",
+      "category": "Layout & Structure",
+      "description": "Spatial depth design with isometric views, vanishing points, and layered elements that guide attention through 3D-like realism.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "pinterest-project",
+      "title": "Design System Inspired by Pinterest",
+      "category": "Media & Consumer",
+      "description": "Pinterest's website is a warm, inspiration-driven canvas that treats visual discovery like a lifestyle magazine. The design operates on a soft, slightly warm white background with Pinterest Red (`#e60023`) as the singular, bold brand accent. Unlike the cool blues of most tech platforms, Pinterest's neutral scale has a distinctly warm undertone — grays lean toward olive/sand (`#91918c`, `#62625b`, `#e5e5e0`) rather than cool steel, creating a cozy, craft-like atmosphere that invites browsing.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "playstation-project",
+      "title": "Design System Inspired by PlayStation",
+      "category": "Media & Consumer",
+      "description": "PlayStation.com carries itself like the marketing wing of a premium consumer-electronics brand that happens to sell entertainment. The page is organized as a **vertical channel of alternating surfaces**: a near-black masthead and hero, a sequence of paper-white editorial panels in the middle, and a deep cobalt-blue footer that anchors the entire experience. Between those surface modes the site leans hard on photography and 3D product renders — the PS5 console, game cover art, DualSense controllers — letting the hardware do the emotional work while the chrome stays restrained.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "posthog-project",
+      "title": "Design System Inspired by PostHog",
+      "category": "Backend & Data",
+      "description": "PostHog's website feels like a startup's internal wiki that escaped into the wild — warm, irreverent, and deliberately anti-corporate. The background isn't the expected crisp white or dark void of developer tools; it's a warm, sage-tinted cream (`#fdfdf8`) that gives every surface a handmade, paper-like quality. Colors lean into earthy olive greens and muted sage rather than the conventional blues and purples of the SaaS world. It's as if someone designed a developer analytics platform inside a cozy garden shed.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "premium-project",
+      "title": "Design System Inspired by Premium",
+      "category": "Professional & Corporate",
+      "description": "Apple-inspired premium aesthetic with precise spacing, modern typography, and a refined, polished visual language.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "professional-project",
+      "title": "Design System Inspired by Professional",
+      "category": "Professional & Corporate",
+      "description": "Polished, business-ready design with modern typography, structured layouts, and a trustworthy visual identity.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "publication-project",
+      "title": "Design System Inspired by Publication",
+      "category": "Creative & Artistic",
+      "description": "Print-inspired visual language for books, magazines, and reports with editorial grids and expressive typography.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "raycast-project",
+      "title": "Design System Inspired by Raycast",
+      "category": "Developer Tools",
+      "description": "Raycast's marketing site feels like the dark interior of a precision instrument — a Swiss watch case carved from obsidian. The background isn't just dark, it's an almost-black blue-tint (`#07080a`) that creates a sense of being inside a macOS native application rather than a website. Every surface, every border, every shadow is calibrated to evoke the feeling of a high-performance desktop utility: fast, minimal, trustworthy.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "realty-luxury-project",
+      "title": "房产 · 高端府邸（Luxury & Prestige）",
+      "category": "高端克制。黑金配色，衬线标题，大图留白，价格锚点突出。",
+      "description": "高端克制。黑金配色，衬线标题，大图留白，价格锚点突出。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "refined-project",
+      "title": "Design System Inspired by Refined",
+      "category": "Modern & Minimal",
+      "description": "Carefully curated, modern minimal style with elegant serif typography and understated, sophisticated palettes.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "renault-project",
+      "title": "Design System Inspired by Renault",
+      "category": "Automotive",
+      "description": "Renault's website is a vibrant digital showroom that balances French automotive elegance with bold, forward-leaning energy — a departure from the monochromatic austerity of German or Italian luxury brands. The page opens with a full-screen hero that washes the viewport in a sweeping aurora gradient — ribbons of magenta, violet, and teal bleeding across the frame behind a dramatically lit vehicle. This chromatic expressiveness is the site's signature: while the interface structure is disciplined (NouvelR typography, black-and-white CTA framework, zero-radius buttons), the content is alive with color — gradient washes on hero slides, saturated vehicle photography, and splashes of Renault Yellow (`#EFDF00`) on accent CTAs. The effect is a showroom that feels energized rather than hushed.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "replicate-project",
+      "title": "Design System Inspired by Replicate",
+      "category": "AI & LLM",
+      "description": "Replicate's interface is a developer playground crackling with creative energy — a bold, high-contrast design that feels more like a music festival poster than a typical API platform. The hero section explodes with a vibrant orange-red-magenta gradient that immediately signals \"this is where AI models come alive,\" while the body of the page grounds itself in a clean white canvas where code snippets and model galleries take center stage.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "resend-project",
+      "title": "Design System Inspired by Resend",
+      "category": "Productivity & SaaS",
+      "description": "Resend's website is a dark, cinematic canvas that treats email infrastructure like a luxury product. The entire page is draped in pure black (`#000000`) with text that glows in near-white (`#f0f0f0`), creating a theater-like experience where content performs on a void stage. This isn't the typical developer-tool darkness — it's the controlled darkness of a photography gallery, where every element is lit with intention and nothing competes for attention.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "restaurant-hotpot-project",
+      "title": "餐饮 · 热辣烟火（Appetizing & Warm）",
+      "category": "激发食欲。暖红 + 深棕 + 奶油底，照片优先，烟火气浓。",
+      "description": "激发食欲。暖红 + 深棕 + 奶油底，照片优先，烟火气浓。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "retro-project",
+      "title": "Design System Inspired by Retro",
+      "category": "Retro & Nostalgic",
+      "description": "Throwback design with vintage-inspired typography, high-contrast retro palettes, and nostalgic visual elements.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "revolut-project",
+      "title": "Design System Inspired by Revolut",
+      "category": "Fintech & Crypto",
+      "description": "Revolut's website is fintech confidence distilled into pixels — a design system that communicates \"your money is in capable hands\" through massive typography, generous whitespace, and a disciplined neutral palette. The visual language is built on Aeonik Pro, a geometric grotesque that creates billboard-scale headlines at 136px with weight 500 and aggressive negative tracking (-2.72px). This isn't subtle branding; it's fintech at stadium scale.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "runwayml-project",
+      "title": "Design System Inspired by Runway",
+      "category": "AI & LLM",
+      "description": "Runway's interface is a cinematic reel brought to life as a website — a dark, editorial, film-production-grade design where full-bleed photography and video ARE the primary UI elements. This is not a typical tech product page; it's a visual manifesto for AI-powered creativity. Every section feels like a frame from a film: dramatic lighting, sweeping landscapes, and intimate human moments captured in high-quality imagery that dominates the viewport.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "saas-dashboard-project",
+      "title": "SaaS · 科技效率（Glass & Bento）",
+      "category": "现代科技感。深色基底 + Indigo 主色 + 玻璃拟态卡片 + Bento 网格。",
+      "description": "现代科技感。深色基底 + Indigo 主色 + 玻璃拟态卡片 + Bento 网格。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "sanity-project",
+      "title": "Design System Inspired by Sanity",
+      "category": "Backend & Data",
+      "description": "Sanity's website is a developer-content platform rendered as a nocturnal command center -- dark, precise, and deeply structured. The entire experience sits on a near-black canvas (`#0b0b0b`) that reads less like a \"dark mode toggle\" and more like the natural state of a tool built for people who live in terminals. Where most CMS marketing pages reach for friendly pastels and soft illustration, Sanity leans into the gravity of its own product: structured content deserves a structured stage.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "sentry-project",
+      "title": "Design System Inspired by Sentry",
+      "category": "Backend & Data",
+      "description": "Sentry's website is a dark-mode-first developer tool interface that speaks the language of code editors and terminal windows. The entire aesthetic is rooted in deep purple-black backgrounds (`#1f1633`, `#150f23`) that evoke the late-night debugging sessions Sentry was built for. Against this inky canvas, a carefully curated set of purples, pinks, and a distinctive lime-green accent (`#c2ef4e`) create a visual system that feels simultaneously technical and vibrant.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "shadcn-project",
+      "title": "Design System Inspired by Shadcn",
+      "category": "Modern & Minimal",
+      "description": "Shadcn/ui-inspired design with minimal, clean components, monochrome palette, and utility-first patterns.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "shopify-project",
+      "title": "Design System Inspired by Shopify",
+      "category": "E-Commerce & Retail",
+      "description": "Shopify.com is a dark-first digital theatre — a website that stages its commerce platform like a cinematic premiere. The entire experience unfolds against an abyss of near-black surfaces that carry the faintest whisper of deep forest green (`#02090A`, `#061A1C`, `#102620`), creating a nocturnal atmosphere that feels less like a SaaS marketing page and more like an exclusive product reveal at a tech keynote. This darkness isn't cold or corporate — it's the warm, enveloping dark of a luxury experience, like sitting in the front row of a darkened auditorium.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "simple-project",
+      "title": "Design System Inspired by Simple",
+      "category": "Modern & Minimal",
+      "description": "Straightforward, no-frills design with clean typography, neutral colors, and intuitive layouts that stay out of the way.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "skeumorphism-project",
+      "title": "Design System Inspired by Skeumorphism",
+      "category": "Morphism & Effects",
+      "description": "Real-world mimicry with textured surfaces, 3D effects, and familiar physical metaphors for intuitive digital interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "slack-project",
+      "title": "Design System Inspired by Slack",
+      "category": "Productivity & SaaS",
+      "description": "Slack's identity is built around the idea that work should feel human and even a little fun. The canonical surface is **light** — white content areas with a deep aubergine (`#4A154B`) sidebar — the inverse of dark-first tools. This contrast is intentional: the sidebar is a calm, always-present navigation anchor, while the content area is bright and open.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "sleek-project",
+      "title": "Design System Inspired by Sleek",
+      "category": "Modern & Minimal",
+      "description": "Modern minimalist aesthetic with clean lines, intentional color palette, subtle interactions, and consistent spacing.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "spacex-project",
+      "title": "Design System Inspired by SpaceX",
+      "category": "Media & Consumer",
+      "description": "SpaceX's website is a full-screen cinematic experience that treats aerospace engineering like a film — every section is a scene, every photograph is a frame, and the interface disappears entirely behind the imagery. The design is pure black (`#000000`) with photography of rockets, space, and planets occupying 100% of the viewport. Text overlays sit directly on these photographs with no background panels, cards, or containers — just type on image, bold and unapologetic.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "spacious-project",
+      "title": "Design System Inspired by Spacious",
+      "category": "Layout & Structure",
+      "description": "Generous whitespace, consistent padding, and grid-based layouts for clean, readable, and breathing interfaces.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "spotify-project",
+      "title": "Design System Inspired by Spotify",
+      "category": "Media & Consumer",
+      "description": "Spotify's web interface is a dark, immersive music player that wraps listeners in a near-black cocoon (`#121212`, `#181818`, `#1f1f1f`) where album art and content become the primary source of color. The design philosophy is \"content-first darkness\" — the UI recedes into shadow so that music, podcasts, and playlists can glow. Every surface is a shade of charcoal, creating a theater-like environment where the only true color comes from the iconic Spotify Green (`#1ed760`) and the album artwork itself.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "starbucks-project",
+      "title": "Design System Inspired by Starbucks",
+      "category": "E-Commerce & Retail",
+      "description": "Starbucks' design system is a **warm, confident retail flagship** wearing the green of their storefront apron across every surface. The canvas alternates between a neutral-warm cream (`#f2f0eb`) and a ceramic off-white (`#edebe9`) — colors that reference actual store materials: the paper napkins, the café walls, the wood finishes — while the signature **Starbucks Green** (`#006241`) anchors the brand moment on hero bands, CTAs, and the Rewards experience. The greens come in four calibrated shades (Starbucks, Accent, House, Uplift) each mapped to a specific surface role, and gold (`#cba258`) appears only around Rewards-status ceremony — not as a general accent.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "storytelling-project",
+      "title": "Design System Inspired by Storytelling",
+      "category": "Creative & Artistic",
+      "description": "Narrative-driven design using visuals, copy, and interaction to guide users through engaging, emotionally resonant journeys.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "stripe-project",
+      "title": "Design System Inspired by Stripe",
+      "category": "Fintech & Crypto",
+      "description": "Stripe's website is the gold standard of fintech design -- a system that manages to feel simultaneously technical and luxurious, precise and warm. The page opens on a clean white canvas (`#ffffff`) with deep navy headings (`#061b31`) and a signature purple (`#533afd`) that functions as both brand anchor and interactive accent. This isn't the cold, clinical purple of enterprise software; it's a rich, saturated violet that reads as confident and premium. The overall impression is of a financial institution redesigned by a world-class type foundry.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "supabase-project",
+      "title": "Design System Inspired by Supabase",
+      "category": "Backend & Data",
+      "description": "Supabase's website is a dark-mode-native developer platform that channels the aesthetic of a premium code editor — deep black backgrounds (`#0f0f0f`, `#171717`) with emerald green accents (`#3ecf8e`, `#00c573`) that reference the brand's open-source, PostgreSQL-green identity. The design system feels like it was born in a terminal window and evolved into a sophisticated marketing surface without losing its developer soul.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "superhuman-project",
+      "title": "Design System Inspired by Superhuman",
+      "category": "Developer Tools",
+      "description": "Superhuman's website feels like opening a luxury envelope — predominantly white, immaculately clean, with a single dramatic gesture of color that commands attention. The hero section is a cinematic purple gradient, a deep twilight wash of `#1b1938` that evokes the moment just before dawn, overlaid with confident white typography. Below this dramatic entrance, the rest of the site is almost entirely white canvas with dark charcoal text, creating a stark but refined reading experience.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "tesla-project",
+      "title": "Design System Inspired by Tesla",
+      "category": "Automotive",
+      "description": "Tesla's website is an exercise in radical subtraction — a digital showroom where the product is everything and the interface is almost nothing. The page opens with a full-viewport hero that fills the entire screen with cinematic car photography: three vehicles arranged on polished concrete against a hazy cityscape sky, with a single model name floating above in translucent white type. There are no decorative borders, no gradients, no patterns, no shadows. The UI exists only to provide just enough navigational structure to get out of the way. Every pixel that isn't product imagery is white space, and that restraint is the design system's most powerful statement.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "tetris-project",
+      "title": "Design System Inspired by Tetris",
+      "category": "Themed & Unique",
+      "description": "Classic block-game inspired design with playful colors, bold display fonts, and compact, high-energy layouts.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "theverge-project",
+      "title": "Design System Inspired by The Verge",
+      "category": "Media & Consumer",
+      "description": "The Verge's 2024 redesign feels like somebody wired a Condé Nast magazine to a chiptune soundboard. The canvas is almost-black (`#131313`), the headlines are built from a brutally heavy display face (Manuka) that runs up to 107px, and the whole page is peppered with acid-mint `#3cffd0` and ultraviolet `#5200ff` that behave less like brand colors and more like hazard tape. Story tiles are not quiet gray cards — they're saturated, full-bleed color blocks (yellow, pink, orange, blue, purple) that feel like pasted-up rave flyers arranged into a timeline. The mood is \"developer console meets club night meets tech tabloid\": serious enough to cover a congressional hearing, loud enough to review a synthesizer.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "together-ai-project",
+      "title": "Design System Inspired by Together AI",
+      "category": "AI & LLM",
+      "description": "Together AI's interface is a pastel-gradient dreamscape built for enterprise AI infrastructure — a design that somehow makes GPU clusters and model inference feel light, airy, and optimistic. The hero section blooms with soft pink-blue-lavender gradients and abstract, painterly illustrations that evoke clouds and flight, establishing a visual metaphor for the \"AI-Native Cloud\" proposition. Against this softness, the typography cuts through with precision: \"The Future\" display font at 64px with aggressive negative tracking (-1.92px) creates dense, authoritative headline blocks.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "tom-modern-project",
+      "title": "Tom Modern Design",
+      "category": "Starter",
+      "description": "Tom Modern Design is an editorial-technical design family: structured, sharp, restrained, premium, intentional, anti-generic. It reads like a deliberate design — not a mass-generated startup template.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "totality-festival-project",
+      "title": "Design System Inspired by Totality Festival",
+      "category": "Themed & Unique",
+      "description": "\"Cosmic Premium\" — the visceral tension and awe of a solar eclipse. The aesthetic blends the stark mystery of deep space with the explosive brilliance of the solar corona. Surfaces appear as translucent obsidian slabs floating over nebula-like gradients. High-energy amber accents represent the \"diamond ring\" flash — they make the interface feel luminous and alive rather than heavy or muted.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "trading-terminal-project",
+      "title": "Trading Terminal Design System",
+      "category": "Themed & Unique",
+      "description": "A professional-grade financial data terminal. Dense, information-rich layouts designed for traders who need to monitor multiple markets simultaneously. Dark surfaces reduce eye strain during long sessions. Cyan accent (#00D4AA) signals positive/buy, coral (#FF4757) signals negative/sell. Everything readable at a glance from two meters away.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "travel-resort-project",
+      "title": "旅游 · 度假胜地（Breezy & Aspirational）",
+      "category": "度假向往。海蓝 + 沙白 + 落日金，超大实景图，留白呼吸感。",
+      "description": "度假向往。海蓝 + 沙白 + 落日金，超大实景图，留白呼吸感。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "uber-project",
+      "title": "Design System Inspired by Uber",
+      "category": "Media & Consumer",
+      "description": "Uber's design language is a masterclass in confident minimalism -- a black-and-white universe where every pixel serves a purpose and nothing decorates without earning its place. The entire experience is built on a stark duality: jet black (`#000000`) and pure white (`#ffffff`), with virtually no mid-tone grays diluting the message. This isn't the sterile minimalism of a startup that hasn't finished designing -- it's the deliberate restraint of a brand so established it can afford to whisper.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "urdu-project",
+      "title": "Urdu Modern (Indus Script System)",
+      "category": "Editorial / Personal / Publication",
+      "description": "**\"Digital Heritage\"** — A clean, spacious, and respectful aesthetic that bridges traditional Urdu calligraphy and contemporary minimal design.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "vercel-project",
+      "title": "Design System Inspired by Vercel",
+      "category": "Developer Tools",
+      "description": "Vercel's website is the visual thesis of developer infrastructure made invisible — a design system so restrained it borders on philosophical. The page is overwhelmingly white (`#ffffff`) with near-black (`#171717`) text, creating a gallery-like emptiness where every element earns its pixel. This isn't minimalism as decoration; it's minimalism as engineering principle. The Geist design system treats the interface like a compiler treats code — every unnecessary token is stripped away until only structure remains.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "vibrant-project",
+      "title": "Design System Inspired by Vibrant",
+      "category": "Bold & Expressive",
+      "description": "Lively, colorful design with bold playful typography, warm accents, and dynamic visual energy.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "vintage-project",
+      "title": "Design System Inspired by Vintage",
+      "category": "Retro & Nostalgic",
+      "description": "1950s-1990s nostalgia with skeuomorphic touches, grainy textures, retro color palettes, and pixel-style typography.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "vodafone-project",
+      "title": "Design System Inspired by Vodafone",
+      "category": "Media & Consumer",
+      "description": "Vodafone's corporate web system carries the confident, broadcast-scale presence of a global telecom brand — built around a single, fiercely-owned brand red and a restrained, editorial layout that lets imagery and type carry the emotional weight. Every page opens the same way: a cinematic dark hero image behind a towering, tight-tracked uppercase display headline (\"EVERYONE. CONNECTED.\", \"INVESTORS\", \"OUR BUSINESS\") followed by a deep red full-width band that acts as a chapter break, then a crisp white editorial grid or a near-black section reserved for institutional content (share ticker, global map, ESG data). The voice is institutional but human: warm documentary photography — cable-laying crews, coral reefs, pine forests, urban twilight — photographed with color-graded realism and set against clean neutral surfaces that never compete with the content.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "voltagent-project",
+      "title": "Design System Inspired by VoltAgent",
+      "category": "AI & LLM",
+      "description": "VoltAgent's interface is a deep-space command terminal for the AI age — a developer-facing darkness built on near-pure-black surfaces (`#050507`) where the only interruption is the electric pulse of emerald green energy. The entire experience evokes the feeling of staring into a high-powered IDE at 2am: dark, focused, and alive with purpose. This is not a friendly SaaS landing page — it's an engineering platform that announces itself through code snippets, architectural diagrams, and raw technical confidence.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "warm-editorial-project",
+      "title": "Warm Editorial",
+      "category": "Starter",
+      "description": "",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "warm-import-2-project",
+      "title": "Warm Editorial",
+      "category": "editorial-warm",
+      "description": "温暖、人文、杂志感。奶油底色 + 深棕文字 + 珊瑚色强调，衬线标题营造编辑/出版气质。设计意图：可信、亲近、有内容温度。允许极淡的柔和阴影（杂志卡片感）。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "warm-project",
+      "title": "见山茶事（新中式茶馆 · Contemporary Chinese Teahouse）",
+      "category": "new-chinese-teahouse",
+      "description": "墨绿为墙、米白为纸、青瓷为线。墨绿取自茶室墙面与老青砖的暗调，米白是宣纸与茶巾的颜色，青瓷色只在墨绿底上以 1px 线与小字露面；茶汤琥珀是唯一暖色，只出现在浅底的序号与竖线上，像茶渍一样少。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "warp-project",
+      "title": "Design System Inspired by Warp",
+      "category": "Developer Tools",
+      "description": "Warp's website feels like sitting at a campfire in a deep forest — warm, dark, and alive with quiet confidence. Unlike the cold, blue-tinted blacks favored by most developer tools, Warp wraps everything in a warm near-black that feels like charred wood or dark earth. The text isn't pure white either — it's Warm Parchment (`#faf9f6`), a barely-perceptible cream that softens every headline and makes the dark canvas feel inviting rather than austere.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "webex-project",
+      "title": "Design System Inspired by Webex",
+      "category": "Productivity & SaaS",
+      "description": "Webex is cleaner, friendlier, and more product-led than Cisco corporate while still living inside the same trust-oriented universe. The brand language combines bright white canvases with dark in-product surfaces, then anchors interaction around a precise family of blue action colors drawn from Momentum. The result is a collaboration platform aesthetic: capable, legible, modern, and designed for continuous use rather than one-shot marketing drama.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "webflow-project",
+      "title": "Design System Inspired by Webflow",
+      "category": "Design & Creative",
+      "description": "Webflow's website is a visually rich, tool-forward platform that communicates \"design without code\" through clean white surfaces, the signature Webflow Blue (`#146ef5`), and a rich secondary color palette (purple, pink, green, orange, yellow, red). The custom WF Visual Sans Variable font creates a confident, precise typographic system with weight 600 for display and 500 for body.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "wechat-project",
+      "title": "WeChat Design System",
+      "category": "Social & Messaging",
+      "description": "",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "wired-project",
+      "title": "Design System Inspired by WIRED",
+      "category": "Media & Consumer",
+      "description": "WIRED's homepage feels like a printed broadsheet that someone has plugged into a wall socket. The grid is dense, the rules are thin, the type is loud, and almost every surface is paper-white or pure black with no rounded corners and no decoration that doesn't earn its place. Image rectangles butt directly against headlines, hairline dividers separate stories the way pica rules separate columns in a real magazine, and the only colors that aren't grayscale come from the photography itself. There is no \"card with shadow\" anywhere — the entire layout is held together by typographic weight and the discipline of rules and whitespace, the same way a Condé Nast print page would be assembled in a paste-up room.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "wise-project",
+      "title": "Design System Inspired by Wise",
+      "category": "Fintech & Crypto",
+      "description": "Wise's website is a bold, confident fintech platform that communicates \"money without borders\" through massive typography and a distinctive lime-green accent. The design operates on a warm off-white canvas with near-black text (`#0e0f0c`) and a signature Wise Green (`#9fe870`) — a fresh, lime-bright color that feels alive and optimistic, unlike the corporate blues of traditional banking.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "x-ai-project",
+      "title": "Design System Inspired by xAI",
+      "category": "AI & LLM",
+      "description": "xAI's website is a masterclass in dark-first, monospace-driven brutalist minimalism -- a design system that feels like it was built by engineers who understand that restraint is the ultimate form of sophistication. The entire experience is anchored to an almost-black background (`#1f2228`) with pure white text (`#ffffff`), creating a high-contrast, terminal-inspired aesthetic that signals deep technical credibility. There are no gradients, no decorative illustrations, no color accents competing for attention. This is a site that communicates through absence.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "xiaohongshu-project",
+      "title": "小红书·种草",
+      "category": "social-xiaohongshu",
+      "description": "小红书种草笔记风。暖白底 + 薯红强调 + 深灰文字，圆角卡片、大字大图、轻拟态。设计意图：亲切、种草、有生活感。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "zapier-project",
+      "title": "Design System Inspired by Zapier",
+      "category": "Productivity & SaaS",
+      "description": "Zapier's website radiates warm, approachable professionalism. It rejects the cold monochrome minimalism of developer tools in favor of a cream-tinted canvas (`#fffefb`) that feels like unbleached paper -- the digital equivalent of a well-organized notebook. The near-black (`#201515`) text has a faint reddish-brown warmth, creating an atmosphere more human than mechanical. This is automation designed to feel effortless, not technical.",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "zhengwu-project",
+      "title": "政务·庄重",
+      "category": "civic-formal",
+      "description": "政务机构、正式严肃。政务蓝 + 白底 + 深灰文字，规整栅格，高对比度无障碍优先。设计意图：可信、规范、一目了然。禁止装饰性元素与花哨排版。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "公安-project",
+      "title": "公安",
+      "category": "custom",
+      "description": "（待生成：描述本项目视觉主题与氛围）",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "宠物用品店-project",
+      "title": "宠物用品店",
+      "category": "custom",
+      "description": "暖色温馨：以奶油米底 + 陶土橙为主，靠色块分层而不是投影，边缘一律 1px 暖砂描边。气质是\"邻居家的靠谱宠物店\"——安静、有温度、信息直白，不做花哨动效。",
+      "has_landing": true,
+      "has_shot": true
+    },
+    {
+      "id": "配图验证-project",
+      "title": "余烬烘焙工坊",
+      "category": "custom",
+      "description": "深夜的烘焙工坊：深棕近黑的底色，只有烘焙机与吧台是亮的。整体气质是「手作、专注、有温度但不喧闹」——大面积留白（留黑），直线条与细边框，暖琥珀色只用在真正需要被看到的地方（CTA、关键数据、曲线）。配图分两级：Hero 主视觉是照片级大图（微距咖啡豆），其余配图是内联线性插画——细线勾形 + 琥珀与奶油色描边，少量实心色块表现咖啡液、豆子与火光。不使用外链图片与图库素材。",
+      "has_landing": false,
+      "has_shot": false
+    },
+    {
+      "id": "验收演示咖啡店-project",
+      "title": "验收演示咖啡店 — 手冲咖啡实验室",
+      "category": "custom / Food & Beverage — Specialty Coffee",
+      "description": "画布是带橄榄暖调的近黑（`#101008`），像凌晨四点的烘焙间：只有一盏灯，灯光是琥珀色。顶部一条中亮度带（`#241d14`）承载页头与 Hero，往下沉到 `#101008` 的深色区，最后收进页脚——明度自上而下递减，和参考稿一致。",
+      "has_landing": true,
+      "has_shot": true
+    }
+  ]
+}

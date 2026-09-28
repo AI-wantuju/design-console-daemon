@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 图片压缩 — 本地批量压缩</title>
+<style>
+  :root{
+    /* Color tokens — DESIGN.md §2 */
+    --color-primary:#22D3EE;
+    --color-primary-hover:#3BD8F0;
+    --color-secondary:#E879F9;
+    --color-surface:#0B1220;
+    --color-surface-alt:#111A2E;
+    --color-surface-raised:#1A2540;
+    --color-text-primary:#E6EDF7;
+    --color-text-secondary:#94A3B8;
+    --color-border:#263449;
+    --color-success:#34D399;
+
+    /* Spacing scale — DESIGN.md §4 */
+    --space-1:4px;
+    --space-2:8px;
+    --space-4:16px;
+    --space-6:24px;
+    --space-8:32px;
+    --space-12:48px;
+
+    /* Radius — DESIGN.md §5 */
+    --radius-btn:8px;
+    --radius-card:12px;
+
+    /* Type — DESIGN.md §3 */
+    --font-sans:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+    --font-mono:"Cascadia Code","Consolas",monospace;
+
+    --max-width:1100px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    background:var(--color-surface);
+    color:var(--color-text-primary);
+    font-family:var(--font-sans);
+    font-size:16px;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:0 var(--space-6);
+  }
+
+  /* 顶部 monospace 状态栏（DESIGN.md §5 可选终端条） */
+  .statusbar{
+    border-bottom:1px solid var(--color-border);
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+  .statusbar .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2) var(--space-6);
+    justify-content:space-between;
+    align-items:center;
+    padding-top:var(--space-4);
+    padding-bottom:var(--space-4);
+  }
+  .status{display:flex;align-items:center;gap:var(--space-2);}
+  .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--color-success);
+    flex:none;
+  }
+
+  /* Hero */
+  .hero{padding:var(--space-12) 0;}
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:var(--space-12);
+    align-items:center;
+  }
+  .hero .wrap > *{min-width:0;}
+  h1{
+    margin:0;
+    font-size:36px;
+    font-weight:600;
+    line-height:1.25;
+  }
+  .subtitle{
+    margin:var(--space-6) 0 0;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--color-text-secondary);
+  }
+  .cta{
+    display:inline-block;
+    margin-top:var(--space-8);
+    padding:12px 28px;
+    background:var(--color-primary);
+    color:var(--color-surface);
+    font-family:var(--font-sans);
+    font-size:16px;
+    font-weight:500;
+    line-height:1.6;
+    border:1px solid var(--color-primary);
+    border-radius:var(--radius-btn);
+    cursor:pointer;
+    transition:background-color 150ms ease, box-shadow 150ms ease;
+  }
+  .cta:hover{
+    background:var(--color-primary-hover);
+    border-color:var(--color-primary-hover);
+    box-shadow:0 0 16px rgba(34,211,238,.35);
+  }
+  .cta:focus-visible{
+    outline:2px solid var(--color-primary);
+    outline-offset:2px;
+  }
+  .cta-note{
+    margin:var(--space-4) 0 0;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+
+  /* Hero 侧栏：压缩结果面板 */
+  .panel{
+    min-width:0;
+    background:var(--color-surface-alt);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    padding:var(--space-6);
+  }
+  .panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:var(--space-4);
+    margin-bottom:var(--space-6);
+  }
+  .badge{
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:500;
+    line-height:1.6;
+    text-transform:uppercase;
+    color:var(--color-secondary);
+    background:rgba(232,121,249,.12);
+    padding:var(--space-1) var(--space-2);
+  }
+  .panel-meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+  .file{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-2) var(--space-4);
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-primary);
+    padding:var(--space-2) 0;
+    border-top:1px solid var(--color-border);
+  }
+  .file span:last-child{color:var(--color-text-secondary);}
+  .track{
+    height:4px;
+    background:var(--color-surface-raised);
+    margin:var(--space-6) 0 var(--space-2);
+  }
+  .track i{display:block;height:4px;background:var(--color-primary);}
+  .panel-foot{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:var(--space-2) var(--space-4);
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+  .panel-foot b{color:var(--color-success);font-weight:500;}
+
+  /* 特性卡片 */
+  .features{
+    padding:var(--space-12) 0;
+    border-top:1px solid var(--color-border);
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--space-6);
+  }
+  .card{
+    background:var(--color-surface-alt);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    padding:var(--space-6);
+  }
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:var(--space-4);
+    margin-bottom:var(--space-6);
+  }
+  .index{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+  .card h2{
+    margin:0 0 var(--space-2);
+    font-size:24px;
+    font-weight:600;
+    line-height:1.25;
+  }
+  .card p{
+    margin:0;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--color-text-secondary);
+  }
+
+  footer{
+    border-top:1px solid var(--color-border);
+    padding:var(--space-6) 0;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--color-text-secondary);
+  }
+  footer .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2) var(--space-6);
+    justify-content:space-between;
+  }
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:minmax(0,1fr);gap:var(--space-8);}
+    .cards{grid-template-columns:minmax(0,1fr);}
+    .panel-head{flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="statusbar">
+    <div class="wrap">
+      <span>~/workspace/ai-image-compressor</span>
+      <span class="status"><i class="dot"></i>local engine ready · v1.0</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>AI 图片压缩，在本机完成</h1>
+          <p class="subtitle">一次导入整批图片，模型逐张判断画面内容与可接受的压缩上限：主体保持清晰，背景按需降码率。压缩全程离线，原图不离开本地磁盘。</p>
+          <button class="cta" type="button">开始压缩</button>
+          <p class="cta-note">无需注册 · JPG / PNG / WebP / HEIC</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span class="badge">batch run</span>
+            <span class="panel-meta">1280 files · 2 shown</span>
+          </div>
+          <div class="file"><span>IMG_4821.HEIC</span><span>4.2 MB → 612 KB</span></div>
+          <div class="file"><span>render_04.PNG</span><span>2.8 MB → 488 KB</span></div>
+          <div class="track"><i style="width:100%"></i></div>
+          <div class="panel-foot">
+            <span>total 3.4 GB → 512 MB</span>
+            <b>done · 85% smaller</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="wrap">
+        <div class="cards">
+          <article class="card">
+            <div class="card-head">
+              <span class="badge">batch</span>
+              <span class="index">01</span>
+            </div>
+            <h2>批量流水线</h2>
+            <p>拖入上千张图片即排队处理，pipeline 按原目录结构输出，文件名与元数据保持不变。</p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <span class="badge">vision</span>
+              <span class="index">02</span>
+            </div>
+            <h2>按内容定码率</h2>
+            <p>模型先识别画面：人像、文字、商品细节优先保真，纯色与大块背景交给更强的压缩策略。</p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <span class="badge">local</span>
+              <span class="index">03</span>
+            </div>
+            <h2>本地运行</h2>
+            <p>压缩与推理全部在本机执行，不经过任何服务器，适合客户素材与未公开的设计稿。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>~/ai-image-compressor</span>
+      <span>macOS · Windows · Linux</span>
+    </div>
+  </footer>
+
+</body>
+</html>

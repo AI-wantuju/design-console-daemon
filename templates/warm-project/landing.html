@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>见山茶事 · 临河的新中式茶室</title>
+<meta name="description" content="见山茶事是一间临河的新中式茶室：每周一换单只留六款，堂内十二席、临窗四席，可预约一席。">
+<style>
+  /* ---- tokens：全部取自 DESIGN.md（见山茶事 · 新中式茶馆），未列出的颜色/字体/字号/间距一律不引入 ---- */
+  :root {
+    --color-primary: #1E3A32;
+    --color-primary-deep: #14261F;
+    --color-moss: #35604F;
+    --color-celadon: #9CB8A6;
+    --color-amber: #8C5E26;
+    --color-surface: #F4F1E8;
+    --color-surface-alt: #E9E5D8;
+    --color-text-primary: #1B2A25;
+    --color-text-secondary: #57675E;
+    --color-border: #D4D0C1;
+
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-48: 48px;
+    --space-64: 64px;
+
+    --font-serif: Georgia, "Times New Roman", "Noto Serif SC", "Songti SC", serif;
+    --font-sans: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+
+    --text-title: 40px;
+    --text-heading: 28px;
+    --text-card: 20px;
+    --text-body: 17px;
+    --text-secondary: 14px;
+    --text-caption: 12px;
+
+    --leading-title: 1.25;
+    --leading-body: 1.75;
+
+    --radius-square: 0;
+    --radius-button: 2px;
+    --duration: 150ms;
+
+    --container: 1040px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: var(--leading-body);
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--space-24);
+    padding-right: var(--space-24);
+  }
+
+  /* ---- 墨绿通栏：hero 与预约区，内容仍受 1040px 约束 ---- */
+  .band--primary {
+    background: var(--color-primary);
+    color: var(--color-surface);
+  }
+
+  .band__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--space-64) var(--space-24);
+  }
+
+  /* ---- 顶栏 ---- */
+  .topbar { border-bottom: 1px solid var(--color-border); }
+
+  .topbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .brand { display: flex; align-items: center; gap: var(--space-16); }
+
+  .brand__mark {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-square);
+    background: var(--color-primary);
+    color: var(--color-surface);
+    font-family: var(--font-serif);
+    font-size: var(--text-body);
+    font-weight: 700;
+    line-height: var(--leading-title);
+  }
+
+  .brand__name {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-body);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-text-primary);
+  }
+
+  .topbar__facts {
+    margin: 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  /* ---- hero ---- */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: var(--space-64);
+    align-items: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 var(--space-16);
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    letter-spacing: .2em;
+    color: var(--color-primary);
+  }
+
+  .eyebrow--dark { color: var(--color-celadon); }
+
+  .hero__title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-title);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-surface);
+  }
+
+  /* 装饰性细线：分隔标题与引语副标题 */
+  .rule {
+    width: var(--space-64);
+    height: 1px;
+    margin: var(--space-32) 0;
+    border: 0;
+    background: var(--color-celadon);
+  }
+
+  .hero__subtitle {
+    max-width: 560px;
+    margin: 0 0 var(--space-32);
+    font-size: var(--text-body);
+    font-style: italic;
+    line-height: var(--leading-body);
+    color: var(--color-surface);
+  }
+
+  .hero__note {
+    margin: var(--space-16) 0 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-surface);
+  }
+
+  /* 主视觉：竖排字牌（深墨绿底 + 1px 青瓷描边 + 竖排四字） */
+  .plaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-24);
+    width: 200px;
+    height: 320px;
+    background: var(--color-primary-deep);
+    border: 1px solid var(--color-celadon);
+  }
+
+  .plaque__chars {
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-family: var(--font-serif);
+    font-size: var(--text-title);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    letter-spacing: .12em;
+    color: var(--color-celadon);
+  }
+
+  .plaque__caption {
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    letter-spacing: .2em;
+    color: var(--color-celadon);
+  }
+
+  /* 时序条：三格，1px 青瓷上边线 */
+  .times {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-32);
+    margin: var(--space-64) 0 0;
+    padding: 0;
+  }
+
+  .time {
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-celadon);
+  }
+
+  .time dt {
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    letter-spacing: .2em;
+    color: var(--color-celadon);
+  }
+
+  .time dd {
+    margin: var(--space-8) 0 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-body);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-surface);
+  }
+
+  /* ---- 按钮 ---- */
+  /* 墨绿底上的反白按钮：米白底 + 墨绿字 + 1px 青瓷描边，hover 转青瓷底 */
+  .button {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--color-celadon);
+    border-radius: var(--radius-button);
+    background: var(--color-surface);
+    color: var(--color-primary);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    text-decoration: none;
+    transition: background-color var(--duration) ease;
+  }
+
+  .button:hover { background: var(--color-celadon); text-decoration: underline; }
+  .button:focus-visible { outline: 2px solid var(--color-celadon); outline-offset: 2px; }
+
+  /* ---- 浅底区块 ---- */
+  .section { padding: var(--space-64) 0; }
+
+  .section--alt { background: var(--color-surface-alt); }
+
+  .section__head {
+    padding-bottom: var(--space-24);
+    margin-bottom: var(--space-32);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .section__title {
+    margin: 0 0 var(--space-8);
+    font-family: var(--font-serif);
+    font-size: var(--text-heading);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-text-primary);
+  }
+
+  .section__note {
+    margin: 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  /* ---- 茶品三款 ---- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-24);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-32);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-square);
+  }
+
+  .card__index {
+    margin: 0 0 var(--space-16);
+    font-family: var(--font-serif);
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-amber);
+  }
+
+  .card__title {
+    margin: 0 0 var(--space-16);
+    font-family: var(--font-serif);
+    font-size: var(--text-card);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-text-primary);
+  }
+
+  .card__body {
+    margin: 0 0 var(--space-32);
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  .card__spec {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-16);
+    margin: auto 0 0;
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .card__spec dt {
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  .card__spec dd {
+    margin: var(--space-8) 0 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-primary);
+  }
+
+  /* ---- 空间故事 ---- */
+  .space__lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-48);
+    align-items: start;
+  }
+
+  .space__prose p {
+    margin: 0 0 var(--space-24);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  .quote {
+    margin: var(--space-32) 0 0;
+    padding: var(--space-24);
+    background: var(--color-surface-alt);
+    border-left: 3px solid var(--color-amber);
+  }
+
+  .quote__text {
+    margin: 0 0 var(--space-16);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--color-text-primary);
+  }
+
+  .quote__source {
+    margin: 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  /* 图版（照片位）：外框 1px border，图注嵌在框内 */
+  .space__pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-24);
+    margin-top: var(--space-24);
+  }
+
+  .plate {
+    margin: 0;
+    background: var(--color-primary-deep);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-square);
+  }
+
+  .plate svg { display: block; width: 100%; height: auto; }
+
+  .plate__caption {
+    margin: 0;
+    padding: var(--space-24);
+    border-top: 1px solid var(--color-celadon);
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    color: var(--color-celadon);
+  }
+
+  .plate__label {
+    margin-right: var(--space-8);
+    font-family: var(--font-serif);
+    color: var(--color-surface);
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-32);
+    margin: var(--space-48) 0 0;
+    padding: 0;
+  }
+
+  .fact {
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .fact dt {
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  .fact dd {
+    margin: var(--space-8) 0 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-body);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-text-primary);
+  }
+
+  /* ---- 预约 ---- */
+  .reserve__inner { text-align: center; }
+
+  .reserve__title {
+    margin: 0 0 var(--space-16);
+    font-family: var(--font-serif);
+    font-size: var(--text-heading);
+    font-weight: 700;
+    line-height: var(--leading-title);
+    color: var(--color-surface);
+  }
+
+  .reserve__body {
+    max-width: 640px;
+    margin: 0 auto var(--space-32);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--color-surface);
+  }
+
+  .reserve__note {
+    margin: var(--space-16) 0 0;
+    font-size: var(--text-secondary);
+    line-height: var(--leading-body);
+    color: var(--color-surface);
+  }
+
+  /* ---- 页脚 ---- */
+  .site-footer { border-top: 1px solid var(--color-border); }
+
+  .site-footer .container {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+
+  .footer__note {
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-32); }
+    .plaque {
+      flex-direction: row;
+      gap: var(--space-16);
+      width: 100%;
+      height: auto;
+      padding: var(--space-24);
+    }
+    .plaque__chars {
+      writing-mode: horizontal-tb;
+      font-size: var(--text-heading);
+      letter-spacing: .2em;
+    }
+    .space__lead { grid-template-columns: minmax(0, 1fr); gap: var(--space-32); }
+    .cards { grid-template-columns: minmax(0, 1fr); }
+    .space__pair { grid-template-columns: minmax(0, 1fr); }
+    .times { grid-template-columns: minmax(0, 1fr); gap: var(--space-24); }
+    .facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-24); }
+  }
+
+  @media (max-width: 640px) {
+    /* 品牌与门店事实在窄屏各占一行：同一 flex 行内放不下时，中文长句会溢出容器 */
+    .topbar__facts { flex: 1 1 100%; }
+    .band__inner { padding-top: var(--space-48); padding-bottom: var(--space-48); }
+    .section { padding: var(--space-48) 0; }
+    .hero__title { font-size: var(--text-heading); }
+    .card { padding: var(--space-24); }
+    .plate__caption { padding: var(--space-16); }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">见</span>
+        <p class="brand__name">见山茶事</p>
+      </div>
+      <p class="topbar__facts">河沿街 8 号 · 每日 10:00–22:00 · 堂内十二席</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="band--primary" aria-labelledby="hero-title">
+      <div class="band__inner">
+        <div class="hero">
+          <div class="hero__text">
+            <p class="eyebrow eyebrow--dark">新中式茶室 · 临河而设</p>
+            <h1 id="hero-title" class="hero__title">把一盏茶，喝到凉了再走</h1>
+            <hr class="rule">
+            <p class="hero__subtitle">水要烧到刚起蟹眼，出汤只等三息。我们不催客人：一席九十分钟，喝完可以续水，也可以坐着看河。</p>
+            <a class="button" href="#reserve">预约体验课</a>
+            <p class="hero__note">河沿街 8 号 · 每日 10:00–22:00 · 一席九十分钟</p>
+          </div>
+          <div class="plaque">
+            <p class="plaque__chars">见山茶事</p>
+            <p class="plaque__caption">乙巳年立</p>
+          </div>
+        </div>
+
+        <dl class="times">
+          <div class="time">
+            <dt>水</dt>
+            <dd>每日 09:30 起炭烧水</dd>
+          </div>
+          <div class="time">
+            <dt>席</dt>
+            <dd>堂内十二席，临窗四席</dd>
+          </div>
+          <div class="time">
+            <dt>茶</dt>
+            <dd>每周一换单，只留六款</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">茶单 · 本周</p>
+          <h2 id="menu-title" class="section__title">本周三款</h2>
+          <p class="section__note">每周一换单，常年只留六款；这一周先上这三款。</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <p class="card__index">壹</p>
+            <h3 class="card__title">明前狮峰龙井</h3>
+            <p class="card__body">清明前三天采的一芽一叶，摊放一夜，锅里手工压出扁平。80℃ 的水，三息出汤，第二泡最甜。</p>
+            <dl class="card__spec">
+              <div>
+                <dt>产区</dt>
+                <dd>西湖狮峰</dd>
+              </div>
+              <div>
+                <dt>每席</dt>
+                <dd>68 元</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="card">
+            <p class="card__index">贰</p>
+            <h3 class="card__title">正岩肉桂</h3>
+            <p class="card__body">炭焙三道，退火三个月才上单。沸水高冲，第一泡就出桂皮香，第七泡还有回甘。</p>
+            <dl class="card__spec">
+              <div>
+                <dt>产区</dt>
+                <dd>武夷山慧苑坑</dd>
+              </div>
+              <div>
+                <dt>每席</dt>
+                <dd>88 元</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="card">
+            <p class="card__index">叁</p>
+            <h3 class="card__title">十年陈皮白茶</h3>
+            <p class="card__body">二〇一五年的寿眉，配新会陈皮，煮着喝。冷水下壶，滚了再等两分钟，枣香会自己出来。</p>
+            <dl class="card__spec">
+              <div>
+                <dt>产区</dt>
+                <dd>福鼎寿眉</dd>
+              </div>
+              <div>
+                <dt>每席</dt>
+                <dd>78 元</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="space-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">空间</p>
+          <h2 id="space-title" class="section__title">一间临河的茶室</h2>
+          <p class="section__note">老屋三进——前厅待客，中庭茶席，后院天井。</p>
+        </div>
+
+        <div class="space__lead">
+          <figure class="plate" data-photo-slot="window">
+            <svg viewBox="0 0 480 300" role="img" aria-label="临河的一面窗：木格窗开在青砖墙上，窗外是河面反光，窗下是长案与一壶两盏。">
+              <rect width="480" height="300" fill="#14261F"/>
+              <rect x="0" y="0" width="480" height="232" fill="#35604F"/>
+              <rect x="120" y="32" width="240" height="160" fill="#14261F"/>
+              <rect x="120" y="32" width="240" height="160" fill="none" stroke="#9CB8A6" stroke-width="2"/>
+              <rect x="124" y="36" width="72" height="72" fill="#F4F1E8"/>
+              <rect x="284" y="36" width="72" height="72" fill="#F4F1E8"/>
+              <line x1="200" y1="32" x2="200" y2="192" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="280" y1="32" x2="280" y2="192" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="120" y1="112" x2="360" y2="112" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="124" y1="140" x2="356" y2="140" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="124" y1="164" x2="356" y2="164" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="0" y1="232" x2="480" y2="232" stroke="#9CB8A6" stroke-width="1"/>
+              <rect x="72" y="218" width="336" height="14" fill="#F4F1E8"/>
+              <rect x="88" y="232" width="8" height="52" fill="#9CB8A6"/>
+              <rect x="384" y="232" width="8" height="52" fill="#9CB8A6"/>
+              <circle cx="240" cy="196" r="22" fill="#9CB8A6"/>
+              <rect x="230" y="166" width="20" height="8" fill="#9CB8A6"/>
+              <polygon points="260,190 276,196 260,202" fill="#9CB8A6"/>
+              <rect x="164" y="204" width="30" height="14" fill="#9CB8A6"/>
+              <rect x="288" y="204" width="30" height="14" fill="#9CB8A6"/>
+            </svg>
+            <figcaption class="plate__caption"><span class="plate__label">图版一</span>临河的一面窗：西晒落进长案，河面的反光会一直爬到墙根。</figcaption>
+          </figure>
+
+          <div class="space__prose">
+            <p>二〇二一年立春，我们租下河沿街 8 号这间临河的老屋。木梁和青砖是原来的，隔断换成可推的格栅，长案是自己钉的。</p>
+            <p>堂内十二席，临窗四席。午后西晒进来，光落在长案上，茶汤的颜色看得最清楚；雨天把外侧的窗推开一条缝，河上的水汽会自己进来。</p>
+            <blockquote class="quote">
+              <p class="quote__text">茶没有秘密，只有水温和时辰。水老一分，鲜就散了；出汤慢三息，涩就上来了。</p>
+              <footer class="quote__source">—— 主理人 周砚</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="space__pair">
+          <figure class="plate" data-photo-slot="long-table">
+            <svg viewBox="0 0 400 300" role="img" aria-label="长案与茶席：一盏吊灯照在整块老榆木长案上，案上摆着两盏与一把壶，案前是两只坐垫。">
+              <rect width="400" height="300" fill="#14261F"/>
+              <rect x="0" y="0" width="400" height="190" fill="#35604F"/>
+              <line x1="0" y1="190" x2="400" y2="190" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="200" y1="0" x2="200" y2="40" stroke="#9CB8A6" stroke-width="1"/>
+              <polygon points="184,40 216,40 208,60 192,60" fill="#9CB8A6"/>
+              <rect x="40" y="210" width="320" height="14" fill="#F4F1E8"/>
+              <rect x="64" y="224" width="8" height="50" fill="#9CB8A6"/>
+              <rect x="328" y="224" width="8" height="50" fill="#9CB8A6"/>
+              <rect x="136" y="196" width="28" height="14" fill="#9CB8A6"/>
+              <rect x="176" y="196" width="28" height="14" fill="#9CB8A6"/>
+              <circle cx="270" cy="190" r="20" fill="#9CB8A6"/>
+              <rect x="262" y="162" width="16" height="8" fill="#9CB8A6"/>
+              <polygon points="288,184 304,190 288,196" fill="#9CB8A6"/>
+              <rect x="96" y="272" width="84" height="16" fill="#9CB8A6"/>
+              <rect x="220" y="272" width="84" height="16" fill="#9CB8A6"/>
+            </svg>
+            <figcaption class="plate__caption"><span class="plate__label">图版二</span>长案与茶席：长案是整块老榆木，煮水就在手边，客人对面落座。</figcaption>
+          </figure>
+
+          <figure class="plate" data-photo-slot="courtyard">
+            <svg viewBox="0 0 400 300" role="img" aria-label="后院天井：四面屋檐围出一方天光，雨丝落在青砖地上，墙边放着水缸与一块庭石。">
+              <rect width="400" height="300" fill="#14261F"/>
+              <rect x="0" y="0" width="400" height="24" fill="#35604F"/>
+              <rect x="0" y="24" width="72" height="276" fill="#35604F"/>
+              <rect x="328" y="24" width="72" height="276" fill="#35604F"/>
+              <rect x="72" y="24" width="256" height="132" fill="#F4F1E8"/>
+              <line x1="104" y1="32" x2="104" y2="120" stroke="#35604F" stroke-width="1"/>
+              <line x1="136" y1="32" x2="136" y2="152" stroke="#35604F" stroke-width="1"/>
+              <line x1="168" y1="32" x2="168" y2="104" stroke="#35604F" stroke-width="1"/>
+              <line x1="208" y1="32" x2="208" y2="144" stroke="#35604F" stroke-width="1"/>
+              <line x1="240" y1="32" x2="240" y2="112" stroke="#35604F" stroke-width="1"/>
+              <line x1="272" y1="32" x2="272" y2="150" stroke="#35604F" stroke-width="1"/>
+              <line x1="300" y1="32" x2="300" y2="98" stroke="#35604F" stroke-width="1"/>
+              <rect x="72" y="156" width="256" height="12" fill="#35604F"/>
+              <line x1="72" y1="168" x2="328" y2="168" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="72" y1="224" x2="328" y2="224" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="72" y1="264" x2="328" y2="264" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="72" y1="296" x2="328" y2="296" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="136" y1="168" x2="136" y2="224" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="264" y1="168" x2="264" y2="224" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="200" y1="224" x2="200" y2="264" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="104" y1="264" x2="104" y2="296" stroke="#9CB8A6" stroke-width="1"/>
+              <line x1="296" y1="264" x2="296" y2="296" stroke="#9CB8A6" stroke-width="1"/>
+              <rect x="88" y="238" width="44" height="26" fill="#9CB8A6"/>
+              <rect x="84" y="230" width="52" height="8" fill="#9CB8A6"/>
+              <circle cx="292" cy="248" r="16" fill="#9CB8A6"/>
+            </svg>
+            <figcaption class="plate__caption"><span class="plate__label">图版三</span>后院天井：天井收雨，檐口的滴水落在青砖上，声音比屋里大。</figcaption>
+          </figure>
+        </div>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt>立室</dt>
+            <dd>二〇二一年立春</dd>
+          </div>
+          <div class="fact">
+            <dt>席面</dt>
+            <dd>堂内十二席</dd>
+          </div>
+          <div class="fact">
+            <dt>时段</dt>
+            <dd>每日 10:00–22:00</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="reserve" class="band--primary" aria-labelledby="reserve-title">
+      <div class="band__inner reserve__inner">
+        <h2 id="reserve-title" class="reserve__title">留一席给你</h2>
+        <p class="reserve__body">每日十二席，临窗四席。提前一天说一声，我们按人数备茶、烧水、留位。</p>
+        <a class="button" href="tel:057100000000">预约体验课</a>
+        <p class="reserve__note">电话 0571-0000 0000 · 河沿街 8 号 · 每日 10:00–22:00</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer__note">见山茶事 · 新中式茶室 · 每日 10:00 开门</p>
+    </div>
+  </footer>
+</body>
+</html>
